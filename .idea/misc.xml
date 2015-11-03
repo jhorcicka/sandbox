@@ -32,8 +32,8 @@
     <option name="formatter" value="ECLIPSE" />
     <option name="id" value="1423736836444" />
     <option name="name" value="default" />
-    <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../karelh/formatter.xml" />
-    <option name="selectedJavaProfile" value="Local Template" />
+    <option name="pathToConfigFileJava" value="$PROJECT_DIR$/formatter.xml" />
+    <option name="selectedJavaProfile" value="DataCleaner" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="EntryPointsManager">
