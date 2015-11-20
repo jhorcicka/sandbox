@@ -26,8 +26,8 @@ class Main {
     private static void unicode() {
         String[] characters = {
                "\u0009", // horizontal tab
-               //"\u000a", // new line
-               // "\u000d", // carriage return
+               /*"\u000a", // new line*/
+               /* "\u000d", // carriage return*/
         };
 
         for (String s : characters) {
