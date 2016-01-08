@@ -17,6 +17,8 @@
         <module>variation</module>
         <module>asm</module>
         <module>xml</module>
+        <module>metamodel</module>
+        <module>autowired</module>
     </modules>
 
     <properties>
