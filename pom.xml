@@ -18,7 +18,8 @@
         <module>asm</module>
         <module>xml</module>
         <module>metamodel</module>
-        <module>autowired</module>
+        <module>spring-autowired</module>
+        <module>spring-security</module>
     </modules>
 
     <properties>

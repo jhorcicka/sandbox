@@ -4,10 +4,11 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/annotation" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/asm" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/autowired" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codecoverage" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/guava" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metamodel" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-autowired" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-security" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/swing" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/variation" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/various" charset="UTF-8" />
