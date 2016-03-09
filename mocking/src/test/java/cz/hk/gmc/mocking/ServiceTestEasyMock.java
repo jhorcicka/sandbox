@@ -9,7 +9,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Service.class)
-public class ServiceTest {
+public class ServiceTestEasyMock {
     @Test
     public void testFinalInBase() throws Exception {
         String finalMethod = "publicFinalMethod";
