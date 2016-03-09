@@ -12,7 +12,23 @@ import org.powermock.modules.junit4.PowerMockRunner;
 public class ServiceTest {
 
     @Test
-    public void testCombination() throws Exception {
+    public void testFinalPublicAndVoidByPowerMock() throws Exception {
+        String finalMethod = "finalMethod";
+        Service powerMock = PowerMock.createPartialMock(Service.class, finalMethod, "publicMethod", "voidMethod");
+
+        PowerMock.expectPrivate(powerMock, finalMethod).andReturn("final mocked...");
+        PowerMock.expectPrivate(powerMock, "publicMethod").andReturn("public mocked...");
+        powerMock.voidMethod();
+        PowerMock.expectLastCall();
+        PowerMock.replay(powerMock);
+
+        System.out.println("voidMethod(PM)="); powerMock.voidMethod();
+        System.out.println("publicMethod(PM)=" + powerMock.publicMethod());
+        System.out.println("finalMethod(PM)=" + powerMock.finalMethod());
+    }
+
+    @Test
+    public void testFinalAndPublicByPowerMock() throws Exception {
         String finalMethod = "finalMethod";
         Service powerMock = PowerMock.createPartialMock(Service.class, finalMethod, "publicMethod");
 

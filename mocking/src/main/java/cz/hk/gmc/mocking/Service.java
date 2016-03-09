@@ -2,6 +2,10 @@ package cz.hk.gmc.mocking;
 
 public class Service {
 
+    public void voidMethod() {
+        System.out.println("real voidMethod was called...");
+    }
+
     public final String finalMethod() {
         System.out.println("real finalMethod was called...");
         return "1000";

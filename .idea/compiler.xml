@@ -95,6 +95,27 @@
         <processorPath useClasspath="true" />
         <module name="sprint-security" />
       </profile>
+      <profile default="false" name="Annotation profile for mocking" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="mocking" />
+      </profile>
+      <profile default="false" name="Annotation profile for spring-autowired" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="spring-autowired" />
+      </profile>
+      <profile default="false" name="Annotation profile for spring-security" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="spring-security" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="annotation" target="1.7" />
@@ -103,6 +124,7 @@
       <module name="codecoverage" target="1.7" />
       <module name="guava" target="1.7" />
       <module name="metamodel" target="1.7" />
+      <module name="mocking" target="1.7" />
       <module name="sandbox" target="1.7" />
       <module name="spring-autowired" target="1.7" />
       <module name="spring-security" target="1.7" />
