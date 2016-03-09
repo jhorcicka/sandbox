@@ -13,6 +13,18 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @PrepareForTest(Service.class)
 public class ServiceTestMockito {
     @Test
+    public void testFinalWithArguments() {
+        try {
+            Service mock = PowerMockito.mock(Service.class);
+            PowerMockito.when(mock.finalMethodWithArguments(42)).thenReturn("Mocked");
+
+            System.out.println("finalMethodWithArguments=" + mock.finalMethodWithArguments(42));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public void testFinal() {
         try {
             Service mock = PowerMockito.mock(Service.class);

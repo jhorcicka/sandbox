@@ -11,6 +11,12 @@ public class Service extends Base {
         return "1000";
     }
 
+    public final String finalMethodWithArguments(int value) {
+        System.out.println("real finalMethodWithArguments was called...");
+        return "x=" + value;
+    }
+
+
     public String publicMethod() {
         System.out.println("real publicMethod was called...");
         return "10";
