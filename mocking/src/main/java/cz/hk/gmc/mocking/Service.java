@@ -1,6 +1,6 @@
 package cz.hk.gmc.mocking;
 
-public class Service {
+public class Service extends Base {
 
     public void voidMethod() {
         System.out.println("real voidMethod was called...");
