@@ -35,6 +35,7 @@ public class Service extends Base {
     }
 
     public static String staticMethod() {
+        System.out.println("real staticMethod was called...");
         return "42";
     }
 }
