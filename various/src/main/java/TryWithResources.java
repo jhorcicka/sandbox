@@ -22,9 +22,36 @@ public class TryWithResources {
         }
     }
 
+    private static class DEF implements AutoCloseable {
+        public void run() {
+            System.out.println("DEF.run() was called...");
+        }
+
+        public void close(String something) {
+            System.out.println("DEF.close(String) with " + something + " was called...");
+        }
+
+        public void close() {
+            System.out.println("DEF.close() was called...");
+        }
+    }
+
     public static void main(String[] args) {
         tryFinally();
         tryWithResources();
+        trySpecialClose();
+    }
+
+    public static void trySpecialClose() {
+        System.out.println("tryFinally: ");
+
+        try (
+              DEF def = new DEF();
+        ) {
+            def.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void tryFinally() {
