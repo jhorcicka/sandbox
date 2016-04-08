@@ -1,7 +1,6 @@
 package cz.hk.gmc.sandbox;
 
 import java.awt.*;
-
 import javax.swing.*;
 
 /**
@@ -9,6 +8,45 @@ import javax.swing.*;
  */
 public class Layout {
     public static void main(String[] args) {
+        //testGridBagLayout();
+        testSimpleGridBagLayout();
+    }
+
+    private static void testSimpleGridBagLayout() {
+        JFrame frame = new JFrame("frame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 400);
+
+        frame.setLayout(new GridBagLayout());
+
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.BLUE);
+        panel.setLayout(new GridBagLayout());
+
+        GridBagConstraints constraints1 = new GridBagConstraints();
+        constraints1.gridx = 1;
+        constraints1.gridy = 1;
+        constraints1.fill = GridBagConstraints.BOTH;
+        constraints1.anchor = GridBagConstraints.LINE_START;
+        constraints1.weightx = 1;
+        panel.add(new JTextField("text"), constraints1);
+
+        GridBagConstraints constraints2 = new GridBagConstraints();
+        constraints2.gridx = 2;
+        constraints2.gridy = 1;
+        JButton button = new JButton("button");
+        button.setPreferredSize(new Dimension(130, 25));
+        panel.add(button, constraints2);
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.weightx = 1;
+
+        frame.add(panel, constraints);
+        frame.setVisible(true);
+    }
+
+    private static void testGridBagLayout() {
         JFrame frame = new JFrame("Links");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 400);
@@ -54,10 +92,6 @@ public class Layout {
         constraints.gridwidth = GridBagConstraints.REMAINDER;
         constraints.weightx = 100;
         panel.add(new JPanel(), constraints);
-
-        constraints.anchor = GridBagConstraints.LINE_START;
-        constraints.gridwidth = GridBagConstraints.REMAINDER;
-        panel.add(new JButton("full width"), constraints);
 
         frame.setVisible(true);
     }
