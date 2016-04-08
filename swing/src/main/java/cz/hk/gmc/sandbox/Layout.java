@@ -55,6 +55,10 @@ public class Layout {
         constraints.weightx = 100;
         panel.add(new JPanel(), constraints);
 
+        constraints.anchor = GridBagConstraints.LINE_START;
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        panel.add(new JButton("full width"), constraints);
+
         frame.setVisible(true);
     }
 }
