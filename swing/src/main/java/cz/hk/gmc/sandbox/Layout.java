@@ -20,7 +20,6 @@ public class Layout {
         frame.setLayout(new GridBagLayout());
 
         JPanel panel = new JPanel();
-        panel.setBackground(Color.BLUE);
         panel.setLayout(new GridBagLayout());
 
         GridBagConstraints constraints1 = new GridBagConstraints();
@@ -39,7 +38,7 @@ public class Layout {
         panel.add(button, constraints2);
 
         GridBagConstraints constraints = new GridBagConstraints();
-        constraints.fill = GridBagConstraints.BOTH;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.weightx = 1;
 
         frame.add(panel, constraints);
@@ -67,12 +66,12 @@ public class Layout {
                         "This is a very long description that goes on multiple lines. "
         );
         constraints.weightx = 1;
-        constraints.fill = GridBagConstraints.BOTH;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.LINE_START;
         constraints.gridwidth = GridBagConstraints.REMAINDER;
         panel.add(editorPane, constraints);
 
-        constraints.gridwidth = GridBagConstraints.BOTH;
+        constraints.gridwidth = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.LINE_START;
         JLabel label = new JLabel();
         label.setText("USERNAME");
@@ -80,7 +79,7 @@ public class Layout {
 
         Dimension size = new Dimension(100, 30);
 
-        constraints.gridwidth = GridBagConstraints.BOTH;
+        constraints.gridwidth = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.LINE_START;
         JTextField textField = new JTextField();
         textField.setMinimumSize(size);
