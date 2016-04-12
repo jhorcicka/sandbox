@@ -116,11 +116,19 @@
         <processorPath useClasspath="true" />
         <module name="spring-security" />
       </profile>
+      <profile default="false" name="Annotation profile for class-loader" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="class-loader" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="annotation" target="1.7" />
       <module name="asm" target="1.7" />
       <module name="autowired" target="1.7" />
+      <module name="class-loader" target="1.7" />
       <module name="codecoverage" target="1.7" />
       <module name="guava" target="1.7" />
       <module name="metamodel" target="1.7" />

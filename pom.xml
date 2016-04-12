@@ -21,6 +21,7 @@
         <module>spring-autowired</module>
         <module>spring-security</module>
         <module>mocking</module>
+        <module>class-loader</module>
     </modules>
 
     <properties>
