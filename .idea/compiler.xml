@@ -123,6 +123,13 @@
         <processorPath useClasspath="true" />
         <module name="class-loader" />
       </profile>
+      <profile default="false" name="Annotation profile for presentation" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="presentation" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="annotation" target="1.7" />
@@ -133,6 +140,7 @@
       <module name="guava" target="1.7" />
       <module name="metamodel" target="1.7" />
       <module name="mocking" target="1.7" />
+      <module name="presentation" target="1.7" />
       <module name="sandbox" target="1.7" />
       <module name="spring-autowired" target="1.7" />
       <module name="spring-security" target="1.7" />

@@ -22,6 +22,7 @@
         <module>spring-security</module>
         <module>mocking</module>
         <module>class-loader</module>
+        <module>presentation</module>
     </modules>
 
     <properties>
