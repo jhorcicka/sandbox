@@ -130,6 +130,13 @@
         <processorPath useClasspath="true" />
         <module name="presentation" />
       </profile>
+      <profile default="false" name="Annotation profile for installer" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="installer" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="annotation" target="1.7" />
@@ -138,6 +145,7 @@
       <module name="class-loader" target="1.7" />
       <module name="codecoverage" target="1.7" />
       <module name="guava" target="1.7" />
+      <module name="installer" target="1.7" />
       <module name="metamodel" target="1.7" />
       <module name="mocking" target="1.7" />
       <module name="presentation" target="1.7" />

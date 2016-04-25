@@ -23,6 +23,7 @@
         <module>mocking</module>
         <module>class-loader</module>
         <module>presentation</module>
+        <module>installer</module>
     </modules>
 
     <properties>
