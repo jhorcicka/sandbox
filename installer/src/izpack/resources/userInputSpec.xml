@@ -1,0 +1,10 @@
+<userInput>
+	<panel id="UserInputPanel" order="0">
+		<createForPack name="main" />
+		<field type="title" txt="Your name" bold="true" size="1" />
+		<field type="staticText" align="left" txt="Enter license file path:"/>
+		<field type="file" align="left" variable="license.file.path">
+			<spec txt="" size="100" set=""/>
+		</field>
+	</panel>
+</userInput>

@@ -14,7 +14,8 @@
 	</info>
 
 	<resources>
-		<res id="InfoPanel.info" src="info.txt" />
+		<res id="InfoPanel.info" src="resources/info.txt" />
+		<res id="userInputSpec.xml" src="resources/userInputSpec.xml" />
 	</resources>
 
 	<guiprefs resizable="yes" width="500" height="340">
@@ -34,8 +35,8 @@
 	</locale>
 
 	<panels>
-		<panel classname="cz.hk.gmc.panels.MyPanel" />
 		<panel classname="InfoPanel" />
+		<panel classname="cz.hk.gmc.panels.MyPanel" id="UserInputPanel" />
 		<panel classname="TargetPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="FinishPanel" />

@@ -12,8 +12,8 @@
 	<artifactId>installer</artifactId>
 
 	<properties>
-		<!--<izpack.version>5.0.6</izpack.version>-->
-		<izpack.version>5.0.9-SNAPSHOT</izpack.version>
+		<izpack.version>5.0.6</izpack.version>
+		<!--<izpack.version>5.0.9-SNAPSHOT</izpack.version>-->
 	</properties>
 
 	<build>

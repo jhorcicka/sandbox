@@ -1,74 +1,33 @@
 package cz.hk.gmc.panels;
 
-
-import java.io.PrintWriter;
-import java.util.Properties;
-
-import com.izforge.izpack.api.adaptator.IXMLElement;
 import com.izforge.izpack.api.data.InstallData;
-import com.izforge.izpack.api.data.Panel;
 import com.izforge.izpack.api.factory.ObjectFactory;
-import com.izforge.izpack.api.handler.AbstractUIHandler;
+import com.izforge.izpack.api.handler.Prompt;
 import com.izforge.izpack.api.resource.Resources;
+import com.izforge.izpack.api.rules.RulesEngine;
 import com.izforge.izpack.installer.console.ConsolePanel;
-import com.izforge.izpack.installer.panel.AbstractPanelView;
 import com.izforge.izpack.installer.panel.PanelView;
-import com.izforge.izpack.panels.licence.AbstractLicenceConsolePanel;
+import com.izforge.izpack.panels.userinput.UserInputConsolePanel;
 import com.izforge.izpack.util.Console;
+import com.izforge.izpack.util.PlatformModelMatcher;
 
-public class MyConsolePanel extends AbstractLicenceConsolePanel {
+public class MyConsolePanel extends UserInputConsolePanel {
+    private InstallData _installData;
 
-    private String licenceText = "license text...";
-
-    public MyConsolePanel(Resources resources, PanelView<ConsolePanel> panel) {
-        super(panel, resources);
+    public MyConsolePanel(final Resources resources, final ObjectFactory factory,
+            final RulesEngine rules, final PlatformModelMatcher matcher,
+            final Console console, final Prompt prompt,
+            final PanelView<ConsolePanel> panelView, final InstallData installData) {
+        super(resources, factory, rules, matcher, console, prompt, panelView, installData);
+        this._installData = installData;
     }
 
     @Override
     public boolean run(InstallData installData, Console console) {
-        return super.run(installData, console);
-    }
+        boolean parentRun = super.run(installData, console);
 
-    @Override
-    protected String getText() {
-        return licenceText;
+        System.out.println("variable=" + _installData.getVariable("license.file.path"));
+
+        return parentRun;
     }
 }
-
-/*
-public class MyConsolePanel extends AbstractPanelView<ConsolePanel> implements ConsolePanel {
-    public MyConsolePanel(final Panel panel, final Class<ConsolePanel> viewClass,
-            final ObjectFactory factory, final InstallData installData) {
-        super(panel, viewClass, factory, installData);
-    }
-
-    @Override
-    protected AbstractUIHandler getHandler() {
-        return null;
-    }
-
-    @Override
-    public boolean generateProperties(final InstallData installData, final PrintWriter printWriter) {
-        return false;
-    }
-
-    @Override
-    public boolean run(final InstallData installData, final Properties properties) {
-        return true;
-    }
-
-    @Override
-    public boolean run(final InstallData installData, final Console console) {
-        return true;
-    }
-
-    @Override
-    public void createInstallationRecord(final IXMLElement ixmlElement) {
-    }
-
-    @Override
-    public boolean handlePanelValidationResult(final boolean b) {
-        return true;
-    }
-}
-*/
