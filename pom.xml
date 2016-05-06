@@ -24,6 +24,7 @@
         <module>class-loader</module>
         <module>presentation</module>
         <module>installer</module>
+        <module>jrecord</module>
     </modules>
 
     <properties>
