@@ -12,6 +12,9 @@ import net.sf.JRecord.JRecordInterface1;
 import net.sf.JRecord.Numeric.ICopybookDialects;
 import net.sf.JRecord.def.IO.builders.ICobolIOBuilder;
 
+/**
+ * http://jrecord.sourceforge.net/
+ */
 public class CobolFile {
     public static void main(String[] args) {
         try {
