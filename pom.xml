@@ -25,6 +25,7 @@
         <module>presentation</module>
         <module>installer</module>
         <module>jrecord</module>
+        <module>translation</module>
     </modules>
 
     <properties>
