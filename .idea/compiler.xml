@@ -151,6 +151,13 @@
         <processorPath useClasspath="true" />
         <module name="reading" />
       </profile>
+      <profile default="false" name="Annotation profile for translation" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="translation" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="annotation" target="1.7" />
@@ -170,6 +177,7 @@
       <module name="spring-security" target="1.7" />
       <module name="sprint-security" target="1.7" />
       <module name="swing" target="1.7" />
+      <module name="translation" target="1.7" />
       <module name="variation" target="1.7" />
       <module name="various" target="1.7" />
       <module name="xml" target="1.7" />

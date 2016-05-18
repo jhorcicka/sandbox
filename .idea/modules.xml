@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/guava/guava.iml" filepath="$PROJECT_DIR$/guava/guava.iml" />
       <module fileurl="file://$PROJECT_DIR$/installer/installer.iml" filepath="$PROJECT_DIR$/installer/installer.iml" />
       <module fileurl="file://$PROJECT_DIR$/jrecord/jrecord.iml" filepath="$PROJECT_DIR$/jrecord/jrecord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jrecord/jrecord.iml" filepath="$PROJECT_DIR$/jrecord/jrecord.iml" />
       <module fileurl="file://$PROJECT_DIR$/metamodel/metamodel.iml" filepath="$PROJECT_DIR$/metamodel/metamodel.iml" />
       <module fileurl="file://$PROJECT_DIR$/mocking/mocking.iml" filepath="$PROJECT_DIR$/mocking/mocking.iml" />
       <module fileurl="file://$PROJECT_DIR$/presentation/presentation.iml" filepath="$PROJECT_DIR$/presentation/presentation.iml" />
@@ -17,6 +18,7 @@
       <module fileurl="file://$PROJECT_DIR$/spring-autowired/spring-autowired.iml" filepath="$PROJECT_DIR$/spring-autowired/spring-autowired.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security/spring-security.iml" filepath="$PROJECT_DIR$/spring-security/spring-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/swing/swing.iml" filepath="$PROJECT_DIR$/swing/swing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/translation/translation.iml" filepath="$PROJECT_DIR$/translation/translation.iml" />
       <module fileurl="file://$PROJECT_DIR$/variation/variation.iml" filepath="$PROJECT_DIR$/variation/variation.iml" />
       <module fileurl="file://$PROJECT_DIR$/various/various.iml" filepath="$PROJECT_DIR$/various/various.iml" />
       <module fileurl="file://$PROJECT_DIR$/xml/xml.iml" filepath="$PROJECT_DIR$/xml/xml.iml" />
