@@ -179,7 +179,7 @@
       <module name="swing" target="1.7" />
       <module name="translation" target="1.7" />
       <module name="variation" target="1.7" />
-      <module name="various" target="1.7" />
+      <module name="various" target="1.8" />
       <module name="xml" target="1.7" />
     </bytecodeTargetLevel>
   </component>
