@@ -27,6 +27,7 @@
         <module>jrecord</module>
         <module>reading</module>
         <module>translation</module>
+        <module>logging</module>
     </modules>
 
     <properties>

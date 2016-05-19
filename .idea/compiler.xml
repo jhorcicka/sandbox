@@ -158,6 +158,13 @@
         <processorPath useClasspath="true" />
         <module name="translation" />
       </profile>
+      <profile default="false" name="Annotation profile for logging" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="logging" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="annotation" target="1.7" />
@@ -168,6 +175,7 @@
       <module name="guava" target="1.7" />
       <module name="installer" target="1.7" />
       <module name="jrecord" target="1.7" />
+      <module name="logging" target="1.7" />
       <module name="metamodel" target="1.7" />
       <module name="mocking" target="1.7" />
       <module name="presentation" target="1.7" />
