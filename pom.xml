@@ -28,6 +28,8 @@
         <module>reading</module>
         <module>translation</module>
         <module>logging</module>
+        <module>selenium</module>
+        <module>threads</module>
     </modules>
 
     <properties>
