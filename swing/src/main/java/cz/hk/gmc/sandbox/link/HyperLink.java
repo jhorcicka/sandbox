@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.link;
 
 import java.awt.*;
 
@@ -39,7 +39,7 @@ public class HyperLink {
 
 
                 JFrame f = new JFrame("HyperlinkListener");
-                f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 f.add(jep);
                 f.pack();
                 f.setVisible(true);

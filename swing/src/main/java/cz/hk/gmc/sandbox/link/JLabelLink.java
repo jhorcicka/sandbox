@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.link;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -97,10 +97,8 @@ public class JLabelLink extends JFrame {
         protected void done() {
             try {
                 get();
-            } catch (ExecutionException ee) {
+            } catch (ExecutionException | InterruptedException ee) {
                 handleException(uri, ee);
-            } catch (InterruptedException ie) {
-                handleException(uri, ie);
             }
         }
 

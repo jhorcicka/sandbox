@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.progressbar;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -7,6 +7,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 public class ProgressBar {
     private ProgressBarFrame _frame;
@@ -30,7 +31,7 @@ public class ProgressBar {
 
         private ProgressBarFrame() {
             setUndecorated(true);
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
             final URL imageUrl = getClass().getResource(PATH);
             final ImageIcon image = new ImageIcon(imageUrl);
@@ -67,6 +68,7 @@ public class ProgressBar {
             _thread.interrupt();
             _thread.join();
         } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

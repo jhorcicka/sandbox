@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.link;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,7 +47,7 @@ public class SwingBox {
 
     private static void show(JComponent component) {
         JFrame frame = new JFrame("Swingbox");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
         frame.getContentPane().add(component);
         frame.setVisible(true);

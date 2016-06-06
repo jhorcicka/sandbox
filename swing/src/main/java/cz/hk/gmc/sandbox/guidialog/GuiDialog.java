@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.guidialog;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

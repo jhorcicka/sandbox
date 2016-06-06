@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.link;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,7 +21,7 @@ public class Link {
             }
         }
         JFrame frame = new JFrame("Links");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(100, 400);
         Container container = frame.getContentPane();
         container.setLayout(new GridBagLayout());
@@ -42,7 +42,11 @@ public class Link {
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().browse(uri);
-            } catch (IOException e) { /* TODO: error handling */ }
-        } else { /* TODO: error handling */ }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.err.println("ERROR: desktop is not supported. ");
+        }
     }
 }
