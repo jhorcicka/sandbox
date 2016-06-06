@@ -1,3 +1,5 @@
+package cz.hk.gmc.various;
+
 public class TryWithResources {
 
     private static class ABC implements AutoCloseable {

@@ -1,3 +1,5 @@
+package cz.hk.gmc.various;
+
 import java.io.*;
 import java.nio.channels.*;
 import java.nio.*;

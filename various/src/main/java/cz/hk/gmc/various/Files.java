@@ -1,7 +1,7 @@
+package cz.hk.gmc.various;
+
 import java.io.*;
 import java.sql.SQLException;
-import java.util.*;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class Files {

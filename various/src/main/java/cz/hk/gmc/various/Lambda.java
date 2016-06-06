@@ -1,3 +1,5 @@
+package cz.hk.gmc.various;
+
 public class Lambda {
     public static void main(String[] args) {
         noArgs();

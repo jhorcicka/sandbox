@@ -1,3 +1,5 @@
+package cz.hk.gmc.various;
+
 /**
  * Created by j.horcicka (GMC).
  */
