@@ -15,9 +15,11 @@
       <module fileurl="file://$PROJECT_DIR$/presentation/presentation.iml" filepath="$PROJECT_DIR$/presentation/presentation.iml" />
       <module fileurl="file://$PROJECT_DIR$/reading/reading.iml" filepath="$PROJECT_DIR$/reading/reading.iml" />
       <module fileurl="file://$PROJECT_DIR$/sandbox.iml" filepath="$PROJECT_DIR$/sandbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/selenium/selenium.iml" filepath="$PROJECT_DIR$/selenium/selenium.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-autowired/spring-autowired.iml" filepath="$PROJECT_DIR$/spring-autowired/spring-autowired.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security/spring-security.iml" filepath="$PROJECT_DIR$/spring-security/spring-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/swing/swing.iml" filepath="$PROJECT_DIR$/swing/swing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/threads/threads.iml" filepath="$PROJECT_DIR$/threads/threads.iml" />
       <module fileurl="file://$PROJECT_DIR$/translation/translation.iml" filepath="$PROJECT_DIR$/translation/translation.iml" />
       <module fileurl="file://$PROJECT_DIR$/variation/variation.iml" filepath="$PROJECT_DIR$/variation/variation.iml" />
       <module fileurl="file://$PROJECT_DIR$/various/various.iml" filepath="$PROJECT_DIR$/various/various.iml" />
