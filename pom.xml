@@ -30,6 +30,8 @@
         <module>logging</module>
         <module>selenium</module>
         <module>threads</module>
+        <module>sdcv-gui</module>
+        <module>alert-dialog</module>
     </modules>
 
     <properties>

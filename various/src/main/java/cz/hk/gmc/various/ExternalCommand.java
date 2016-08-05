@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 public class ExternalCommand {
     public static void main(String[] args) {
         try {
+            System.out.println(System.getProperty("os.name"));
             outputWithArguments();
             outputWithoutArguments();
             noOutput();
