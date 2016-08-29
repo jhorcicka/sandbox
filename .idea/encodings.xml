@@ -3,13 +3,13 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/alert-dialog" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/alert-dialog" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/annotation" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/asm" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/class-loader" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codecoverage" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/guava" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/installer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jemmy" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jrecord" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/logging" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/metamodel" charset="UTF-8" />

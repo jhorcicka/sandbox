@@ -193,6 +193,13 @@
         <processorPath useClasspath="true" />
         <module name="alert-dialog" />
       </profile>
+      <profile default="false" name="Annotation profile for jemmy" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jemmy" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="alert-dialog" target="1.8" />
@@ -203,6 +210,7 @@
       <module name="codecoverage" target="1.8" />
       <module name="guava" target="1.8" />
       <module name="installer" target="1.8" />
+      <module name="jemmy" target="1.8" />
       <module name="jrecord" target="1.8" />
       <module name="logging" target="1.8" />
       <module name="metamodel" target="1.8" />

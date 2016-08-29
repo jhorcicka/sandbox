@@ -22,9 +22,38 @@ class Main {
         //operators();
         //log();
         //fileStream();
-        unicode();
+        //unicode();
+        testJoin();
     }
+    
+    private static void testJoin() {
+        List<String> list = new ArrayList<>();
+        list.add("one");
+        list.add("two");
+        list.add("three");
 
+        System.out.println(join(null));
+        System.out.println(join(list));
+        list.clear();
+        System.out.println(join(list));
+    }
+    
+    private static String join(List<String> categories) {
+        if (categories == null || categories.size() <= 0) {
+            return "";
+        }
+
+        final StringBuilder builder = new StringBuilder();
+
+        for (String category : categories) {
+            builder.append(category.toString()).append(",");
+        }
+
+        final String csvList = builder.toString();
+
+        return csvList.substring(0, csvList.length() - 1); // remove last comma 
+    }
+    
     private static void unicode() {
         String[] characters = {
                "\u0009", // horizontal tab
