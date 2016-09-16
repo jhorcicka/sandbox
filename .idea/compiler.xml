@@ -212,6 +212,13 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
       </profile>
+      <profile default="false" name="Annotation profile for rhino" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="rhino" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="alert-dialog" target="1.8" />
@@ -230,6 +237,7 @@
       <module name="mocking" target="1.8" />
       <module name="presentation" target="1.8" />
       <module name="reading" target="1.8" />
+      <module name="rhino" target="1.8" />
       <module name="sandbox" target="1.8" />
       <module name="sdcv-gui" target="1.8" />
       <module name="selenium" target="1.8" />

@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/mocking/mocking.iml" filepath="$PROJECT_DIR$/mocking/mocking.iml" />
       <module fileurl="file://$PROJECT_DIR$/presentation/presentation.iml" filepath="$PROJECT_DIR$/presentation/presentation.iml" />
       <module fileurl="file://$PROJECT_DIR$/reading/reading.iml" filepath="$PROJECT_DIR$/reading/reading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rhino/rhino.iml" filepath="$PROJECT_DIR$/rhino/rhino.iml" />
       <module fileurl="file://$PROJECT_DIR$/sandbox.iml" filepath="$PROJECT_DIR$/sandbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/selenium/selenium.iml" filepath="$PROJECT_DIR$/selenium/selenium.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-autowired/spring-autowired.iml" filepath="$PROJECT_DIR$/spring-autowired/spring-autowired.iml" />

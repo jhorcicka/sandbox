@@ -32,6 +32,7 @@
         <module>threads</module>
         <module>alert-dialog</module>
         <module>jemmy</module>
+        <module>rhino</module>
     </modules>
 
     <properties>

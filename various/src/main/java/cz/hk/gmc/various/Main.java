@@ -23,7 +23,16 @@ class Main {
         //log();
         //fileStream();
         //unicode();
-        testJoin();
+        //testJoin();
+        printMultiple("format", new String[] { "one" }, "two");
+    }
+    
+    private static void printMultiple(String s, Object... args) {
+        System.out.println(s);
+        
+        for (Object a : args) {
+            System.out.println(a.toString());
+        }
     }
     
     private static void testJoin() {
