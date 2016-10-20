@@ -219,6 +219,13 @@
         <processorPath useClasspath="true" />
         <module name="rhino" />
       </profile>
+      <profile default="false" name="Annotation profile for docker" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="docker" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="alert-dialog" target="1.8" />
@@ -227,6 +234,7 @@
       <module name="autowired" target="1.7" />
       <module name="class-loader" target="1.8" />
       <module name="codecoverage" target="1.8" />
+      <module name="docker" target="1.8" />
       <module name="guava" target="1.8" />
       <module name="hadoop" target="1.8" />
       <module name="installer" target="1.8" />

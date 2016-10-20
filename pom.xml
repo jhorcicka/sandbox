@@ -33,6 +33,7 @@
         <module>alert-dialog</module>
         <module>jemmy</module>
         <module>rhino</module>
+        <module>docker</module>
     </modules>
 
     <properties>

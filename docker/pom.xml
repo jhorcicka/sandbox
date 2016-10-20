@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>sandbox</artifactId>
+		<groupId>cz.hk.gmc</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>docker</artifactId>
+
+	<properties>
+		<dockerTomcatPort>8081</dockerTomcatPort>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>integration-test</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>0.15.16</version>
+						<configuration>
+							<logDate>default</logDate>
+							<autoPull>true</autoPull>
+							<images>
+								<image>
+									<name>docker-image-test</name>
+									<build>
+										<dockerFileDir>${project.build.directory}/classes</dockerFileDir>
+										<assembly>
+											<descriptor>${project.build.directory}/classes/assembly.xml
+											</descriptor>
+										</assembly>
+									</build>
+
+									<run>
+										<ports>
+											<port>${dockerTomcatPort}:8080</port>
+										</ports>
+										<wait>
+											<url>http://localhost:${dockerTomcatPort}</url>
+											<time>300000</time>
+										</wait>
+									</run>
+								</image>
+							</images>
+						</configuration>
+						<executions>
+							<execution>
+								<id>start</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>build</goal>
+									<goal>start</goal>
+								</goals>
+							</execution>
+							<!--<execution>-->
+								<!--<id>stop</id>-->
+								<!--<phase>post-integration-test</phase>-->
+								<!--<goals>-->
+									<!--<goal>stop</goal>-->
+								<!--</goals>-->
+							<!--</execution>-->
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

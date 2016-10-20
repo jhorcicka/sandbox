@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/asm/asm.iml" filepath="$PROJECT_DIR$/asm/asm.iml" />
       <module fileurl="file://$PROJECT_DIR$/class-loader/class-loader.iml" filepath="$PROJECT_DIR$/class-loader/class-loader.iml" />
       <module fileurl="file://$PROJECT_DIR$/codecoverage/codecoverage.iml" filepath="$PROJECT_DIR$/codecoverage/codecoverage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/docker/docker.iml" filepath="$PROJECT_DIR$/docker/docker.iml" />
       <module fileurl="file://$PROJECT_DIR$/guava/guava.iml" filepath="$PROJECT_DIR$/guava/guava.iml" />
       <module fileurl="file://$PROJECT_DIR$/installer/installer.iml" filepath="$PROJECT_DIR$/installer/installer.iml" />
       <module fileurl="file://$PROJECT_DIR$/jemmy/jemmy.iml" filepath="$PROJECT_DIR$/jemmy/jemmy.iml" />

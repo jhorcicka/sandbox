@@ -1,0 +1,9 @@
+<assembly>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<files>
+		<file>
+			<source>${project.build.directory}/classes/index.html</source>
+			<outputDirectory>/</outputDirectory>
+		</file>
+	</files>
+</assembly>
