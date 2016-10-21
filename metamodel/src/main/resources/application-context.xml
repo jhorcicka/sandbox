@@ -8,7 +8,7 @@
 	<context:component-scan base-package="cz.hk.gmc.metamodel" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="url" value="jdbc:postgresql://localhost/metamodel" />
+		<property name="url" value="jdbc:postgresql://localhost/postgres" />
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="username" value="postgres" />
 		<property name="password" value="postgres" />

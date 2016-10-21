@@ -1,7 +1,5 @@
 package cz.hk.gmc.metamodel;
 
-import java.util.Iterator;
-
 import org.apache.metamodel.DataContext;
 import org.apache.metamodel.data.DataSet;
 import org.apache.metamodel.data.Row;
@@ -9,21 +7,25 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
+    private DataContext _dataContext;
+    
     public static void main(String args[]) {
         Main main = new Main();
-        main.run();
+        main.select();
     }
-
-    public void run() {
+    
+    public Main() {
         ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
-        DataContext dataContext = (DataContext) context.getBean("dataContext");
+        _dataContext = (DataContext) context.getBean("dataContext");
 
-        if (dataContext == null) {
+        if (_dataContext == null) {
             System.out.println("NULL :-(");
             return;
         }
+    }
 
-        DataSet dataSet = dataContext.query()
+    public void select() {
+        DataSet dataSet = _dataContext.query()
                 .from("persons")
                 .select("name")
                 .where("id").eq(1)
