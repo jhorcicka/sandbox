@@ -34,7 +34,8 @@
         <module>jemmy</module>
         <module>rhino</module>
         <module>docker</module>
-    </modules>
+		<module>javafx</module>
+	</modules>
 
     <properties>
         <!--<mainClass>cz.hk.gmc.sandbox.Main</mainClass>-->

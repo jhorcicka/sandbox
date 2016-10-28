@@ -18,69 +18,6 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for annotation" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="annotation" />
-      </profile>
-      <profile default="false" name="Annotation profile for codecoverage" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="codecoverage" />
-      </profile>
-      <profile default="false" name="Annotation profile for guava" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="guava" />
-      </profile>
-      <profile default="false" name="Annotation profile for asm" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="asm" />
-      </profile>
-      <profile default="false" name="Annotation profile for swing" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="swing" />
-      </profile>
-      <profile default="false" name="Annotation profile for xml" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="xml" />
-      </profile>
-      <profile default="false" name="Annotation profile for various" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="various" />
-      </profile>
-      <profile default="false" name="Annotation profile for metamodel" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="metamodel" />
-      </profile>
-      <profile default="false" name="Annotation profile for variation" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="variation" />
-      </profile>
       <profile default="false" name="Annotation profile for autowired" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -95,90 +32,6 @@
         <processorPath useClasspath="true" />
         <module name="sprint-security" />
       </profile>
-      <profile default="false" name="Annotation profile for mocking" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="mocking" />
-      </profile>
-      <profile default="false" name="Annotation profile for spring-autowired" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="spring-autowired" />
-      </profile>
-      <profile default="false" name="Annotation profile for spring-security" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="spring-security" />
-      </profile>
-      <profile default="false" name="Annotation profile for class-loader" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="class-loader" />
-      </profile>
-      <profile default="false" name="Annotation profile for presentation" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="presentation" />
-      </profile>
-      <profile default="false" name="Annotation profile for installer" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="installer" />
-      </profile>
-      <profile default="false" name="Annotation profile for jrecord" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="jrecord" />
-      </profile>
-      <profile default="false" name="Annotation profile for reading" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="reading" />
-      </profile>
-      <profile default="false" name="Annotation profile for translation" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="translation" />
-      </profile>
-      <profile default="false" name="Annotation profile for logging" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="logging" />
-      </profile>
-      <profile default="false" name="Annotation profile for selenium" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="selenium" />
-      </profile>
-      <profile default="false" name="Annotation profile for threads" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="threads" />
-      </profile>
       <profile default="false" name="Annotation profile for sdcv-gui" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -186,45 +39,37 @@
         <processorPath useClasspath="true" />
         <module name="sdcv-gui" />
       </profile>
-      <profile default="false" name="Annotation profile for alert-dialog" enabled="true">
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="alert-dialog" />
-      </profile>
-      <profile default="false" name="Annotation profile for jemmy" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="jemmy" />
-      </profile>
-      <profile default="false" name="Annotation profile for hadoop" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for swing-fest" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for rhino" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="rhino" />
-      </profile>
-      <profile default="false" name="Annotation profile for docker" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
+        <module name="annotation" />
+        <module name="asm" />
+        <module name="class-loader" />
+        <module name="codecoverage" />
         <module name="docker" />
+        <module name="guava" />
+        <module name="installer" />
+        <module name="javafx" />
+        <module name="jemmy" />
+        <module name="jrecord" />
+        <module name="logging" />
+        <module name="metamodel" />
+        <module name="mocking" />
+        <module name="presentation" />
+        <module name="reading" />
+        <module name="rhino" />
+        <module name="selenium" />
+        <module name="spring-autowired" />
+        <module name="spring-security" />
+        <module name="swing" />
+        <module name="threads" />
+        <module name="translation" />
+        <module name="variation" />
+        <module name="various" />
+        <module name="xml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -238,6 +83,7 @@
       <module name="guava" target="1.8" />
       <module name="hadoop" target="1.8" />
       <module name="installer" target="1.8" />
+      <module name="javafx" target="1.8" />
       <module name="jemmy" target="1.8" />
       <module name="jrecord" target="1.8" />
       <module name="logging" target="1.8" />
