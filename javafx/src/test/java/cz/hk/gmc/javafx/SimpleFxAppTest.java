@@ -21,9 +21,6 @@ public class SimpleFxAppTest {
         }
 
         public String lastLine() {
-            for (String s : strings) {
-                System.out.println("s=" + s);
-            }
             return strings.get(strings.size() - 2); // last line is just new-line
         }
     }
@@ -46,8 +43,6 @@ public class SimpleFxAppTest {
     public void runScript(String path) {
         ScriptOutputCapturer writer = new ScriptOutputCapturer();
         AutomatonScriptRunner.getInstance().run(path, writer);
-
-        System.out.println("Writer: " + writer.strings);
 
         assertThat(writer.strings.isEmpty(), is(false));
         assertThat(writer.lastLine(), is("Test PASSED!"));
