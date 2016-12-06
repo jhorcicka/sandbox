@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class WaitForFileToRead {
-    private static final String PATH = "/home/kuba/tmp/hot/done/file.pdf";
+    private static final String PATH = "/home/kuba/tmp/hot/in/file.pdf";
     private static final String COMMAND = "lsof | grep \"" + PATH + "\" | sed s/\\ \\ */\\ /g | cut -d' ' -f 4";
 
     public static void main(String[] args) {
@@ -36,6 +36,7 @@ public class WaitForFileToRead {
         final File file = new File(PATH);
 
         if (!file.exists()) {
+            System.out.println("File does not exist...");
             return;
         }
 
