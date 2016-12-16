@@ -5,5 +5,13 @@
 			<source>${project.build.directory}/classes/index.html</source>
 			<outputDirectory>/</outputDirectory>
 		</file>
+		<file>
+			<source>${project.build.directory}/classes/generate.sh</source>
+			<outputDirectory>/</outputDirectory>
+		</file>
+		<file>
+			<source>${project.build.directory}/docker-1.0-SNAPSHOT-jar-with-dependencies.jar</source>
+			<outputDirectory>/</outputDirectory>
+		</file>
 	</files>
 </assembly>

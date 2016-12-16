@@ -32,7 +32,7 @@ public class WaitForFileToRead {
         }
     }
 
-    private static void readStreamLinux() throws IOException, InterruptedException {
+    private static void readStreamLinux() throws IOException {
         final File file = new File(PATH);
 
         if (!file.exists()) {
@@ -90,7 +90,7 @@ public class WaitForFileToRead {
         }
     }
 
-    private static boolean isOpenedForWriting() throws IOException, InterruptedException {
+    private static boolean isOpenedForWriting() throws IOException {
         final Process process = new ProcessBuilder("/bin/sh", "-c", COMMAND).start();
         final InputStream inputStream = process.getInputStream();
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
