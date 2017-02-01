@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.guidialog;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;

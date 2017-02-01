@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.layouts;
 
 import java.awt.*;
 import javax.swing.*;

@@ -1,4 +1,4 @@
-package cz.hk.gmc.sandbox;
+package cz.hk.gmc.sandbox.thread;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
