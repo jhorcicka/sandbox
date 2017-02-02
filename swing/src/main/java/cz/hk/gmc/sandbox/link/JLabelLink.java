@@ -13,7 +13,6 @@ import javax.swing.*;
  * @since 02. 10. 2015
  */
 public class JLabelLink extends JFrame {
-
     private static final String LABEL_TEXT = "For further information visit:";
     private static final String A_VALID_LINK = "http://stackoverflow.com";
     private static final String A_HREF = "<a href=\"";
@@ -21,6 +20,19 @@ public class JLabelLink extends JFrame {
     private static final String HREF_END = "</a>";
     private static final String HTML = "<html>";
     private static final String HTML_END = "</html>";
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                new JLabelLink().setVisible(true);
+            }
+        });
+    }
 
     public JLabelLink() {
         setTitle("HTML link via a JLabel");
@@ -111,30 +123,11 @@ public class JLabelLink extends JFrame {
         return s.substring(s.indexOf(A_HREF) + A_HREF.length(), s.indexOf(HREF_CLOSED));
     }
 
-    //WARNING
-//This method requires that s is a plain string that requires
-//no further escaping
     private static String linkIfy(String s) {
         return A_HREF.concat(s).concat(HREF_CLOSED).concat(s).concat(HREF_END);
     }
 
-    //WARNING
-//This method requires that s is a plain string that requires
-//no further escaping
     private static String htmlIfy(String s) {
         return HTML.concat(s).concat(HTML_END);
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                new JLabelLink().setVisible(true);
-            }
-        });
     }
 }
