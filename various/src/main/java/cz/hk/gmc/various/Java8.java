@@ -3,6 +3,7 @@ package cz.hk.gmc.various;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 class Java8 {
     public static void main(String[] args) {
@@ -23,6 +24,9 @@ class Java8 {
         list.add("ccc2");
 
         list.stream().filter((s) -> s.startsWith("b")).forEach(System.out::println);
+        final String joinedListString = list.stream().map(String::toString).collect(Collectors.joining(", "));
+        System.out.println("joined list=" + joinedListString);
+
     }
 
     public void optional(final String string) {
