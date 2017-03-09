@@ -11,6 +11,7 @@
     <modules>
         <module>annotation</module>
         <module>codecoverage</module>
+        <module>git</module>
         <module>guava</module>
         <module>various</module>
         <module>swing</module>
