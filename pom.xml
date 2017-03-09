@@ -35,6 +35,7 @@
         <module>rhino</module>
         <module>docker</module>
 		<module>javafx</module>
+		<module>git</module>
 	</modules>
 
     <properties>
