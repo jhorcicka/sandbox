@@ -1,55 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="Javac" />
-    <resourceExtensions />
-    <wildcardResourcePatterns>
-      <entry name="!?*.java" />
-      <entry name="!?*.form" />
-      <entry name="!?*.class" />
-      <entry name="!?*.groovy" />
-      <entry name="!?*.scala" />
-      <entry name="!?*.flex" />
-      <entry name="!?*.kt" />
-      <entry name="!?*.clj" />
-      <entry name="!?*.aj" />
-    </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for autowired" enabled="true">
+      <profile name="Annotation profile for autowired" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="autowired" />
       </profile>
-      <profile default="false" name="Annotation profile for sprint-security" enabled="true">
+      <profile name="Annotation profile for sprint-security" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="sprint-security" />
       </profile>
-      <profile default="false" name="Annotation profile for sdcv-gui" enabled="true">
+      <profile name="Annotation profile for sdcv-gui" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="sdcv-gui" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="alert-dialog" />
         <module name="annotation" />
         <module name="asm" />
         <module name="class-loader" />
         <module name="codecoverage" />
         <module name="docker" />
+        <module name="git" />
         <module name="guava" />
         <module name="installer" />
         <module name="javafx" />
@@ -80,6 +61,7 @@
       <module name="class-loader" target="1.8" />
       <module name="codecoverage" target="1.8" />
       <module name="docker" target="1.8" />
+      <module name="git" target="1.8" />
       <module name="guava" target="1.8" />
       <module name="hadoop" target="1.8" />
       <module name="installer" target="1.8" />
