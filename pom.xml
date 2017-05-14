@@ -36,7 +36,8 @@
         <module>rhino</module>
         <module>docker</module>
 		<module>javafx</module>
-	</modules>
+        <module>hbase</module>
+    </modules>
 
     <properties>
         <!--<mainClass>cz.hk.gmc.sandbox.Main</mainClass>-->
