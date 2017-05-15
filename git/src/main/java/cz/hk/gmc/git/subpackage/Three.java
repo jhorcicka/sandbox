@@ -1,5 +1,5 @@
 package cz.hk.gmc.git.subpackage;
 
-public class Four {
+public class Three {
     // TODO
 }
