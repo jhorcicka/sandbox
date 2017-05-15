@@ -5,8 +5,14 @@ import java.util.ResourceBundle;
 
 public class ResourceBundleDemo {
     public static void main(String[] args) {
-        final Locale locale = new Locale("en", "US");
+        test(Locale.getDefault());
+        test(new Locale("en", "US"));
+        test(new Locale("cs", "CZ"));
+    }
+
+    private static void test(final Locale locale) {
         final ResourceBundle labels = ResourceBundle.getBundle("bundle", locale);
-        System.out.println(labels.getString("label1"));
+        //final ResourceBundle labels = ResourceBundle.getBundle("bundle___TEST");
+        System.out.println(labels.getString("label3"));
     }
 }
