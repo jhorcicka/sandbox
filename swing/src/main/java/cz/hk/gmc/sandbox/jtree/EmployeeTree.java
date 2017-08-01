@@ -6,28 +6,42 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
+import javax.swing.plaf.basic.BasicTreeUI;
 import javax.swing.tree.TreeCellRenderer;
 
-/**
- * @since 27. 11. 2015
- */
 public class EmployeeTree {
     public static void main(String args[]) {
-        JFrame frame = new JFrame("Book Tree");
+        final JFrame frame = new JFrame("Book Tree");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Employee javaBooks[] = { new Employee("A", "F", 9.99f), new Employee("B", "E", 4.99f),
-                new Employee("C", "D", 9.95f) };
-        Employee netBooks[] = { new Employee("AA", "CC", 9.99f), new Employee("BB", "DD", 9.99f) };
-        Vector<Employee> javaVector = new TreeNodeVector<Employee>("A", javaBooks);
-        Vector<Employee> netVector = new TreeNodeVector<Employee>("As", netBooks);
-        Object rootNodes[] = { javaVector, netVector };
-        Vector<Object> rootVector = new TreeNodeVector<Object>("Root", rootNodes);
-        JTree tree = new JTree(rootVector);
-        TreeCellRenderer renderer = new EmployeeCellRenderer();
-        tree.setCellRenderer(renderer);
-        JScrollPane scrollPane = new JScrollPane(tree);
+        final JTree tree = getTree();
+        final JScrollPane scrollPane = new JScrollPane(tree);
         frame.add(scrollPane, BorderLayout.CENTER);
         frame.setSize(300, 300);
         frame.setVisible(true);
+    }
+
+    private static JTree getTree() {
+        final JTree tree = new JTree(getRootVector());
+        final TreeCellRenderer renderer = new MyStyleTreeCellRenderer();
+        //final TreeCellRenderer renderer = new EmployeeCellRenderer();
+        tree.setCellRenderer(renderer);
+        tree.setShowsRootHandles(false);
+        final BasicTreeUI ui = (BasicTreeUI) tree.getUI();
+        ui.setLeftChildIndent(0);
+        ui.setRightChildIndent(0);
+
+        return tree;
+    }
+
+    private static Vector<Object> getRootVector() {
+        final Employee javaBooks[] = { new Employee("A", "F", 9.99f), new Employee("B", "E", 4.99f),
+        new Employee("C", "D", 9.95f) };
+        final Employee netBooks[] = { new Employee("AA", "CC", 9.99f), new Employee("BB", "DD", 9.99f) };
+        final Vector<Employee> javaVector = new TreeNodeVector<>("A", javaBooks);
+        final Vector<Employee> netVector = new TreeNodeVector<>("As", netBooks);
+        final Object rootNodes[] = { javaVector, netVector };
+        final Vector<Object> rootVector = new TreeNodeVector<>("Root", rootNodes);
+
+        return rootVector;
     }
 }
