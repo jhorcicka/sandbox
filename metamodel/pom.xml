@@ -47,6 +47,16 @@
 			<artifactId>spring-context</artifactId>
 			<version>4.2.4.RELEASE</version>
 		</dependency>
+        <dependency>
+            <groupId>org.apache.metamodel</groupId>
+            <artifactId>MetaModel-core</artifactId>
+            <version>4.5.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.metamodel</groupId>
+            <artifactId>MetaModel-core</artifactId>
+            <version>4.5.4</version>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 </project>

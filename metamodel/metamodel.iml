@@ -11,8 +11,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.apache.metamodel:MetaModel-jdbc:4.4.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.metamodel:MetaModel-core:4.4.1" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.6" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.3-1101-jdbc4" level="project" />
     <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
@@ -23,6 +21,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.2.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.metamodel:MetaModel-core:4.5.4" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.argparse4j:argparse4j:0.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:1.3.172" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.carrotsearch:junit-benchmarks:0.7.2" level="project" />
