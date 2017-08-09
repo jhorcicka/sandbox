@@ -13,7 +13,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeCellRenderer;
 
 public class DCTreeCellRenderer implements TreeCellRenderer {
-    private final Dimension size = new Dimension(200, 30);
+    private final Dimension size = new Dimension(290, 30);
 
     private static final Color COLLAPSED_NODE_BG = new Color(174, 174, 174, 204); // #aeaeae 20 opacity
     private static final Color EXPANDED_NODE_BG = new Color(209, 76, 104); // #d14c68
@@ -28,9 +28,8 @@ public class DCTreeCellRenderer implements TreeCellRenderer {
 
     public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded,
             boolean leaf, int row, boolean hasFocus) {
-        final ImageIcon rightArrow = new ImageIcon(this.getClass().getResource("/right.png"));
+        final ImageIcon rightArrow = new ImageIcon(this.getClass().getResource("/down.png"));
         final JLabel label = new JLabel("", rightArrow, JLabel.LEFT);
-        label.setPreferredSize(size);
         label.setHorizontalAlignment(JLabel.LEFT);
         label.setVerticalAlignment(JLabel.TOP);
         label.setForeground(getForeground(leaf, selected, expanded));
@@ -40,7 +39,7 @@ public class DCTreeCellRenderer implements TreeCellRenderer {
             final Employee employee = (Employee) userObject;
             //final String text = leaf ? employee.getName() : "<html><b>" + employee.getName() + "</b></html>";
             label.setText("<html>" + employee.getName() + "</html>");
-            final ImageIcon downArrow = new ImageIcon(this.getClass().getResource("/down.png"));
+            final ImageIcon downArrow = new ImageIcon(this.getClass().getResource("/right.png"));
             label.setIcon(downArrow);
         } else {
             label.setText("<html><strong>" + value.toString() + "</strong></html>");
