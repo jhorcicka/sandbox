@@ -7,15 +7,15 @@
 
 	<context:component-scan base-package="cz.hk.gmc.metamodel" />
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="url" value="jdbc:postgresql://localhost/kuba" />
+	<bean id="postgresSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:postgresql://localhost/postgres" />
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="username" value="postgres" />
 		<property name="password" value="postgres" />
 		<property name="maxActive" value="10" />
 	</bean>
 
-	<bean id="dataContext" class="org.apache.metamodel.jdbc.JdbcDataContext">
-		<constructor-arg name="dataSource" ref="dataSource" />
+	<bean id="postgresContext" class="org.apache.metamodel.jdbc.JdbcDataContext">
+		<constructor-arg name="dataSource" ref="postgresSource" />
 	</bean>
 </beans>

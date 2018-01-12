@@ -18,7 +18,7 @@ public class MetaDataDemo {
     }
 
     public void init() {
-        final ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+        final ApplicationContext context = new ClassPathXmlApplicationContext("postgres-context.xml");
         _dataContext = (DataContext) context.getBean("dataContext");
 
         if (_dataContext == null) {

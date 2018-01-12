@@ -38,7 +38,8 @@
         <module>docker</module>
 		<module>javafx</module>
         <module>hbase</module>
-    </modules>
+		<module>mongo</module>
+	</modules>
 
     <properties>
         <!--<mainClass>cz.hk.gmc.sandbox.Main</mainClass>-->

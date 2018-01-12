@@ -14,6 +14,7 @@ public class CollectionsDemo {
         list.add("str2");
         list.add("str3");
         System.err.println("list-size: " + list.size());
+        System.err.println("values: " + list.toString());
 
         final String[] array = list.toArray(new String[0]);
         System.err.println("array-size: " + array.length);

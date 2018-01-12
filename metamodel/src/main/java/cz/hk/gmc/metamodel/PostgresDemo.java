@@ -6,17 +6,17 @@ import org.apache.metamodel.data.Row;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Main {
+public class PostgresDemo {
     private DataContext _dataContext;
     
     public static void main(String args[]) {
-        final Main main = new Main();
+        final PostgresDemo main = new PostgresDemo();
         main.select();
     }
     
-    public Main() {
-        final ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
-        _dataContext = (DataContext) context.getBean("dataContext");
+    public PostgresDemo() {
+        final ApplicationContext context = new ClassPathXmlApplicationContext("postgres-context.xml");
+        _dataContext = (DataContext) context.getBean("postgresContext");
 
         if (_dataContext == null) {
             System.out.println("NULL :-(");
@@ -26,7 +26,7 @@ public class Main {
 
     public void select() {
         final DataSet dataSet = _dataContext.query()
-                .from("persons")
+                .from("people")
                 .select("name")
                 .where("id").eq(1)
                 .execute();

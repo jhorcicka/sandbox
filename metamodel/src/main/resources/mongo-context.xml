@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="cz.hk.gmc.metamodel" />
+
+	<bean id="mongoSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="mongodb://localhost:27017/test" />
+		<property name="username" value="" />
+		<property name="password" value="" />
+		<property name="maxActive" value="10" />
+	</bean>
+
+	<bean id="mongoContext" class="org.apache.metamodel.jdbc.JdbcDataContext">
+		<constructor-arg name="dataSource" ref="mongoSource" />
+	</bean>
+</beans>
