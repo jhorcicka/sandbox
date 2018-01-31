@@ -24,7 +24,13 @@ class Main {
         //fileStream();
         //unicode();
         //testJoin();
-        printMultiple("format", new String[] { "one" }, "two");
+        //printMultiple("format", new String[] { "one" }, "two");
+        substr();
+    }
+
+    private static void substr() {
+        final String string = "abcd";
+        System.err.println("MYTODO: " + string.substring(-1));
     }
     
     private static void printMultiple(String s, Object... args) {
