@@ -25,7 +25,17 @@ class Main {
         //unicode();
         //testJoin();
         //printMultiple("format", new String[] { "one" }, "two");
-        substr();
+        //substr();
+        //replaceSeparators();
+    }
+
+    private static void replaceSeparators() {
+        String path = "/home/user/some\\path\\to\\file";
+        System.err.println("MYTODO: " + path);
+        path = path.replaceAll("/", File.separator);
+        System.err.println("MYTODO: " + path);
+        path = path.replace("\\", File.separator);
+        System.err.println("MYTODO: " + path);
     }
 
     private static void substr() {

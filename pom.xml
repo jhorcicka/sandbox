@@ -39,6 +39,7 @@
 		<module>javafx</module>
         <module>hbase</module>
 		<module>mongo</module>
+		<module>h2</module>
 	</modules>
 
     <properties>
