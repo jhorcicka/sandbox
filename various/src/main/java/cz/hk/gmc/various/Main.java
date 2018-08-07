@@ -27,6 +27,49 @@ class Main {
         //printMultiple("format", new String[] { "one" }, "two");
         //substr();
         //replaceSeparators();
+        java8();
+    }
+    
+    private static void java8() {
+        class Record {
+            private Object[] array;
+            Record(final int size) {
+                this.array = new Object[size];
+                
+                for (int i = 0; i < size; i++) {
+                    array[i] = new Integer(i);
+                }
+            }
+            
+            Object[] getArray() {
+                return this.array;
+            }
+        }
+
+        final int size = 1000000;
+        final Record record = new Record(size);
+        final Object[] array = new Object[size];
+        
+        final long t0 = System.currentTimeMillis();
+        for (int i = 0; i < size; i++) {
+            array[i] = record.getArray()[i];
+        }
+        final long t1 = System.currentTimeMillis();
+
+        System.err.println("MYTODO: length= " + array.length);
+        System.err.println("MYTODO: t0 = " + t0);
+        System.err.println("MYTODO: t1 = " + t1);
+        System.err.println("MYTODO: t1-t0 = " + (t1 - t0));
+
+
+        final long t2 = System.currentTimeMillis();
+        final Object[] array2 = Arrays.copyOf(record.getArray(), size);
+        final long t3 = System.currentTimeMillis();
+
+        System.err.println("MYTODO: length= " + array2.length);
+        System.err.println("MYTODO: t2 = " + t2);
+        System.err.println("MYTODO: t3 = " + t3);
+        System.err.println("MYTODO: t3-t2 = " + (t3 - t2));
     }
 
     private static void replaceSeparators() {
