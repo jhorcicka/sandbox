@@ -40,6 +40,7 @@
         <module>hbase</module>
 		<module>mongo</module>
 		<module>h2</module>
+		<module>spark</module>
 	</modules>
 
     <properties>
