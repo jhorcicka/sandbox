@@ -41,6 +41,7 @@
 		<module>mongo</module>
 		<module>h2</module>
 		<module>spark</module>
+		<module>datacleaner</module>
 	</modules>
 
     <properties>
