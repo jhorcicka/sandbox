@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:soap="http://cxf.apache.org/bindings/soap" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<jaxws:server id="jaxwsService" serviceClass="com.javacodegeeks.examples.jaxws.service.HelloWorld" address="/hello_world">
+		<jaxws:serviceBean>
+			<bean class="com.javacodegeeks.examples.jaxws.service.HelloWorld"/>
+		</jaxws:serviceBean>
+	</jaxws:server>
+</beans>
+
+
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+	   <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"-->
+	   <!--xsi:schemaLocation="-->
+ <!--http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+ <!--http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">-->
+
+<!--<import resource="classpath:META-INF/cxf/cxf.xml" />-->
+<!--<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />-->
+
+<!--<bean id="logInBound" class="org.apache.cxf.interceptor.LoggingInInterceptor" />-->
+<!--<bean id="logOutBound" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />-->
+
+<!--<jaxws:endpoint id="helloWorld"-->
+				<!--implementor="server.HelloWorldImpl" address="/HelloWorld">-->
+	<!--<jaxws:inInterceptors>-->
+		<!--<ref bean="logInBound" />-->
+		<!--<ref bean="inbound-security" />-->
+	<!--</jaxws:inInterceptors>-->
+	<!--<jaxws:outInterceptors>-->
+		<!--<ref bean="logOutBound" />-->
+	<!--</jaxws:outInterceptors>-->
+<!--</jaxws:endpoint>-->
+
+<!--&lt;!&ndash;  WSS4JInInterceptor for processing a UsernameToken from the SOAP &ndash;&gt;-->
+<!--<bean id="inbound-security" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">-->
+	<!--<constructor-arg>-->
+		<!--<map>-->
+			<!--<entry key="action" value="UsernameToken"/>-->
+			<!--&lt;!&ndash;entry key="passwordType" value="PasswordText"/&ndash;&gt;-->
+			<!--<entry key="passwordCallbackClass" value="server.ServerPasswordCallback"/>-->
+		<!--</map>-->
+	<!--</constructor-arg>-->
+<!--</bean>-->
+<!--</beans>-->
