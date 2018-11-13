@@ -40,6 +40,8 @@
 					</reports>
 					<filter>tattletale-filters.properties</filter>
 					<failOnWarn>true</failOnWarn>
+					<source>${project.build.directory}/${project.build.finalName}/WEB-INF/lib</source>
+					<!--<source>${project.build.directory}/classes/lib</source>-->
 				</configuration>
 			</plugin>
 			<plugin>
@@ -61,16 +63,8 @@
 					<warName>JaxWsSecurity</warName>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.jboss.tattletale</groupId>
-				<artifactId>tattletale-maven</artifactId>
-				<configuration>
-					<source>${project.build.directory}/${project.build.finalName}/WEB-INF/lib</source>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
-
 
 	<dependencies>
 		<dependency>
@@ -79,111 +73,92 @@
 			<version>${wss4j.version}</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
+					<groupId>org.opensaml</groupId>
+					<artifactId>opensaml</artifactId>
 				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>xml-security</groupId>
-			<artifactId>xmlsec</artifactId>
-			<version>1.3.0</version>
-			<exclusions>
 				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>xml-security</groupId>-->
+			<!--<artifactId>xmlsec</artifactId>-->
+			<!--<version>1.3.0</version>-->
+		<!--</dependency>-->
 
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-security-saml</artifactId>
-			<version>${cxf.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-transports-http-jetty</artifactId>
-			<version>${cxf.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.apache.cxf</groupId>-->
+			<!--<artifactId>cxf-rt-security-saml</artifactId>-->
+			<!--<version>${cxf.version}</version>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.slf4j</groupId>-->
+					<!--<artifactId>slf4j-api</artifactId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.cxf</groupId>-->
+			<!--<artifactId>cxf-rt-transports-http-jetty</artifactId>-->
+			<!--<version>${cxf.version}</version>-->
+		<!--</dependency>-->
+		
+		<!-- needed for jaxws namespace -->
+		<dependency> 
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 			<version>${cxf.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-ws-security</artifactId>
 			<version>${cxf.version}</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
+					<groupId>org.apache.wss4j</groupId>
+					<artifactId>wss4j-policy</artifactId>
 				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-transports-http</artifactId>
-			<version>${cxf.version}</version>
-			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-api</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		
+		<!-- needed for servlet -->
+		<dependency> 
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jcl</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.security</groupId>-->
+			<!--<artifactId>spring-security-config</artifactId>-->
+			<!--<version>5.1.1.RELEASE</version>-->
+		<!--</dependency>-->
 	</dependencies>
 </project>
