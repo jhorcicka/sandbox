@@ -1,6 +1,9 @@
 <!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:soap="http://cxf.apache.org/bindings/soap" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">-->
-<!--<jaxws:server id="jaxwsService" serviceClass="com.javacodegeeks.examples.jaxws.service.HelloWorld" address="/hello_world">-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--xmlns:jaxws="http://cxf.apache.org/jaxws"-->
+<!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">-->
+<!--<jaxws:server id="jaxwsService" serviceClass="com.javacodegeeks.examples.jaxws.service.HelloWorld"-->
+<!--address="/hello_world">-->
 <!--<jaxws:serviceBean>-->
 <!--<bean class="com.javacodegeeks.examples.jaxws.service.HelloWorld"/>-->
 <!--</jaxws:serviceBean>-->
@@ -10,34 +13,53 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
 	   xsi:schemaLocation="
- http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
- http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
-
-	<!--<import resource="classpath:META-INF/cxf/cxf.xml"/>-->
-	<!--<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>-->
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
 	<bean id="logInBound" class="org.apache.cxf.interceptor.LoggingInInterceptor"/>
-	<!--<bean id="logOutBound" class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>-->
 
 	<jaxws:endpoint id="helloWorld"
-					implementor="com.javacodegeeks.examples.jaxws.service.HelloWorld" address="/HelloWorld">
+					implementor="com.javacodegeeks.examples.jaxws.service.HelloWorld" address="/hello_world">
 		<jaxws:inInterceptors>
 			<ref bean="logInBound"/>
 			<ref bean="inbound-security"/>
 		</jaxws:inInterceptors>
-		<!--<jaxws:outInterceptors>-->
-			<!--<ref bean="logOutBound"/>-->
-		<!--</jaxws:outInterceptors>-->
 	</jaxws:endpoint>
 
-	<!--  WSS4JInInterceptor for processing a UsernameToken from the SOAP -->
 	<bean id="inbound-security" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
 		<constructor-arg>
 			<map>
 				<entry key="action" value="UsernameToken"/>
-				<!--entry key="passwordType" value="PasswordText"/-->
+				<entry key="passwordType" value="PasswordText"/>
 				<entry key="passwordCallbackClass" value="com.javacodegeeks.examples.jaxws.service.PasswordCallback"/>
 			</map>
 		</constructor-arg>
 	</bean>
 </beans>
+
+		<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+		<!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"-->
+		<!--xsi:schemaLocation="-->
+		<!--http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+		<!--http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">-->
+		<!--<bean id="myPasswordCallback"-->
+		<!--class="com.javacodegeeks.examples.jaxws.service.PasswordCallback"/>-->
+		<!--<jaxws:endpoint id="helloWorld"-->
+		<!--implementor="com.javacodegeeks.examples.jaxws.service.HelloWorld"-->
+		<!--address="http://localhost:8080/JaxWsSecurity/services/HelloWorld">-->
+
+		<!--<jaxws:inInterceptors>-->
+		<!--<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">-->
+		<!--<constructor-arg>-->
+		<!--<map>-->
+		<!--<entry key="action" value="UsernameToken"/>-->
+		<!--<entry key="passwordType" value="PasswordDigest"/>-->
+		<!--<entry key="passwordCallbackRef">-->
+		<!--<ref bean="myPasswordCallback"/>-->
+		<!--</entry>-->
+		<!--</map>-->
+		<!--</constructor-arg>-->
+		<!--</bean>-->
+		<!--</jaxws:inInterceptors>-->
+		<!--</jaxws:endpoint>-->
+		<!--</beans>-->
