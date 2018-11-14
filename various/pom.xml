@@ -8,6 +8,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    
+    <properties>
+        <my.variable>test-value</my.variable>
+    </properties>
 
     <artifactId>various</artifactId>
     <build>
@@ -21,7 +25,11 @@
                 </configuration>
             </plugin>
         </plugins>
+        <testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+                <filtering>true</filtering>
+			</testResource>
+        </testResources>
     </build>
-
-
 </project>
