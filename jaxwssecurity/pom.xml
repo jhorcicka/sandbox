@@ -119,7 +119,7 @@
 		</dependency>
 		
 		<!-- needed for servlet -->
-		<dependency> 
+		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>${cxf.version}</version>
