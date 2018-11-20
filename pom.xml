@@ -42,7 +42,7 @@
 		<module>h2</module>
 		<module>spark</module>
 		<module>datacleaner</module>
-		<module>jaxwssecurity</module>
+		<module>cxf-ws</module>
 	</modules>
 
     <properties>
