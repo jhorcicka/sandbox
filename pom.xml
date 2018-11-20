@@ -43,7 +43,8 @@
 		<module>spark</module>
 		<module>datacleaner</module>
 		<module>cxf-ws</module>
-	</modules>
+        <module>axis2-ws</module>
+    </modules>
 
     <properties>
         <!--<mainClass>cz.hk.gmc.sandbox.Main</mainClass>-->

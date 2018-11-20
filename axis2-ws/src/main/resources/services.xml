@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="CalculatorService">
+
+	<description>
+		Simple Calculator Implementation
+	</description>
+
+	<parameter name="ServiceClass">cz.hk.gmc.CalculatorService</parameter>
+
+	<operation name="setX" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
+		<actionMapping>http://gmc.hk.cz/xsd/setX</actionMapping>
+		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+	</operation>
+
+	<operation name="setY" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
+		<actionMapping>http://gmc.hk.cz/xsd/setY</actionMapping>
+		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+	</operation>
+
+	<operation name="getSum" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
+		<actionMapping>http://gmc.hk.cz/xsd/getSum</actionMapping>
+		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+	</operation>
+
+	<operation name="sayHi" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
+		<actionMapping>http://gmc.hk.cz/xsd/sayHi</actionMapping>
+		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+	</operation>
+
+</service>
