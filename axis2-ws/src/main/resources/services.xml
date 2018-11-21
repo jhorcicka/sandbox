@@ -1,30 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<service name="CalculatorService">
+<service name="HelloService">
 
-	<description>
-		Simple Calculator Implementation
-	</description>
+	<description>Simple Hello Service</description>
 
-	<parameter name="ServiceClass">cz.hk.gmc.CalculatorService</parameter>
-
-	<operation name="setX" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
-		<actionMapping>http://gmc.hk.cz/xsd/setX</actionMapping>
-		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
-	</operation>
-
-	<operation name="setY" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
-		<actionMapping>http://gmc.hk.cz/xsd/setY</actionMapping>
-		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
-	</operation>
-
-	<operation name="getSum" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
-		<actionMapping>http://gmc.hk.cz/xsd/getSum</actionMapping>
-		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
-	</operation>
+	<parameter name="ServiceClass">cz.hk.gmc.HelloService</parameter>
 
 	<operation name="sayHi" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
 		<actionMapping>http://gmc.hk.cz/xsd/sayHi</actionMapping>
-		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
 	</operation>
 
+	<module ref="rampart"/>
+	<module ref="addressing"/>
+
+	<wsp:Policy wsu:Id="UTOverTransport"
+				xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+				xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+					<wsp:Policy>
+						<sp:TransportToken>
+							<wsp:Policy>
+								<!-- REMOVED TO MAKE THE SAMPLE RUN WITH THE axis2server-->
+								<!--<sp:HttpsToken RequireClientCertificate="false"/> -->
+							</wsp:Policy>
+						</sp:TransportToken>
+						<sp:AlgorithmSuite>
+							<wsp:Policy>
+								<sp:Basic128/>
+							</wsp:Policy>
+						</sp:AlgorithmSuite>
+						<sp:Layout>
+							<wsp:Policy>
+								<sp:Lax/>
+							</wsp:Policy>
+						</sp:Layout>
+						<sp:IncludeTimestamp/>
+					</wsp:Policy>
+				</sp:TransportBinding>
+				<sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+					<wsp:Policy>
+						<sp:UsernameToken
+								sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient"/>
+					</wsp:Policy>
+				</sp:SignedSupportingTokens>
+
+				<ramp:RampartConfig xmlns:ramp="http://ws.apache.org/rampart/policy">
+					<ramp:passwordCallbackClass>cz.hk.gmc.PasswordHandler</ramp:passwordCallbackClass>
+				</ramp:RampartConfig>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
 </service>

@@ -17,8 +17,8 @@
 				<groupId>org.apache.axis2</groupId>
 				<artifactId>axis2-java2wsdl-maven-plugin</artifactId>
 				<configuration>
-					<className>cz.hk.gmc.CalculatorService</className>
-					<outputFileName>${project.build.directory}/CalculatorService.wsdl</outputFileName>
+					<className>cz.hk.gmc.HelloService</className>
+					<outputFileName>${project.build.directory}/HelloService.wsdl</outputFileName>
 				</configuration>
 				<executions>
 					<execution>
@@ -34,7 +34,7 @@
 				<artifactId>axis2-aar-maven-plugin</artifactId>
 				<configuration>
 					<servicesXmlFile>${basedir}/src/main/resources/services.xml</servicesXmlFile>
-					<wsdlFile>${project.build.directory}/CalculatorService.wsdl</wsdlFile>
+					<wsdlFile>${project.build.directory}/HelloService.wsdl</wsdlFile>
 				</configuration>
 				<executions>
 					<execution>
@@ -47,4 +47,13 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.ws.security</groupId>
+			<artifactId>wss4j</artifactId>
+			<version>1.6.19</version>
+		</dependency>
+	</dependencies>
+
 </project>
