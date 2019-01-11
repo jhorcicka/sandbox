@@ -5,6 +5,19 @@ package cz.hk.gmc.sandbox;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("GUI");
+        testA();
     }
+    
+    private static void testA() {
+        Integer a = new Integer(127);
+        Integer b = new Integer(127);
+        Integer c = 127;
+        Integer d = 127;
+        Integer e = new Integer(200);
+        Integer f = new Integer(200);
+        Integer g = 200;
+        Integer h = 200;
+        System.out.println((a == b) + " " + (c == d) + " " + (e == f) + " " + (g == h));
+    }
+
 }
