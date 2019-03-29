@@ -41,15 +41,16 @@ public class JerseyService {
     @Path("/employees")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addEmployee(Employee e) throws URISyntaxException {
-        if (e == null) {
+    public Response addEmployee(Employee employee) {
+        if (employee == null) {
             return Response.status(400).entity("Please add employee details !!").build();
         }
 
-        if (e.getName() == null) {
+        if (employee.getName() == null) {
             return Response.status(400).entity("Please provide the employee name !!").build();
         }
 
-        return Response.created(new URI("/rest/employees/" + e.getId())).build();
+        GenericEntity<Employee> entity = new GenericEntity<>(employee, Employee.class);
+        return Response.ok().entity(entity).build();
     }
 }

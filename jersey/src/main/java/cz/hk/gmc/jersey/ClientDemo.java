@@ -13,7 +13,7 @@ import org.glassfish.jersey.filter.LoggingFilter;
 
 public class ClientDemo {
     public static void main(String[] args) {
-        get();
+        //get();
         post();
     }
     
@@ -24,9 +24,10 @@ public class ClientDemo {
         final Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
         final Employee employee = new Employee(42, "John Doe");
         final Response response = invocationBuilder.post(Entity.entity(employee, MediaType.APPLICATION_JSON));
+        final Employee employee2 = response.readEntity(Employee.class);
 
         System.out.println(response.getStatus());
-        System.out.println(response.readEntity(String.class));
+        System.err.println("MYTODO: " + employee2.toString());
     }   
     
     private static void get() {

@@ -4,27 +4,27 @@ public class Employee {
     private Integer id;
     private String name;
 
-    Employee() {
+    public Employee() {
     }
 
-    Employee(Integer id, String name) {
+    public Employee(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    Integer getId() {
+    public Integer getId() {
         return id;
     }
 
-    void setId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
