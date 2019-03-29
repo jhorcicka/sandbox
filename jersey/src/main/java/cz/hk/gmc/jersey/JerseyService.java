@@ -22,7 +22,7 @@ public class JerseyService {
 
     @GET
     @Path("/employees/{id}")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response updateEmployeeById(@PathParam("id") Integer id) {
         if (id < 0) {
             return Response.noContent().build();
@@ -39,8 +39,8 @@ public class JerseyService {
 
     @POST
     @Path("/employees")
-    @Consumes(MediaType.APPLICATION_XML)
-    @Produces(MediaType.APPLICATION_XML)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response addEmployee(Employee e) throws URISyntaxException {
         if (e == null) {
             return Response.status(400).entity("Please add employee details !!").build();
