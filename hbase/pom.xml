@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.hbase</groupId>
-            <artifactId>hbase-client</artifactId>
+            <artifactId>hbase-clientDemo</artifactId>
             <version>1.3.1</version>
         </dependency>
     </dependencies>

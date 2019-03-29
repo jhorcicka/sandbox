@@ -44,6 +44,7 @@
 		<module>datacleaner</module>
 		<module>cxf-ws</module>
         <module>axis2-ws</module>
+        <module>jersey</module>
     </modules>
 
     <properties>

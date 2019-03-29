@@ -11,5 +11,15 @@
 
     <artifactId>guava</artifactId>
 
+    <properties>
+        <guava.version>27.0.1-jre</guava.version>
+    </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+    </dependencies>
 </project>

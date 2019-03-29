@@ -14,7 +14,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.quadient.dataservices</groupId>
-			<artifactId>dataservices-client-jersey</artifactId>
+			<artifactId>dataservices-clientDemo-jersey</artifactId>
 			<version>0.15-SNAPSHOT</version>
 		</dependency>
 		<dependency>

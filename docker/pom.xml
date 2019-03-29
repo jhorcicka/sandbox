@@ -113,10 +113,10 @@
 	</build>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/com.spotify/docker-client -->
+		<!-- https://mvnrepository.com/artifact/com.spotify/docker-clientDemo -->
 		<dependency>
 			<groupId>com.spotify</groupId>
-			<artifactId>docker-client</artifactId>
+			<artifactId>docker-clientDemo</artifactId>
 			<version>6.1.1</version>
 		</dependency>
 		<dependency>

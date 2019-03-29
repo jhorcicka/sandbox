@@ -6,6 +6,22 @@ import java.util.List;
 
 public class Logic {
     public static void main(String[] args) {
+        int[] abc = new int[-1];
+        
+        int[] intx = new int[2];
+        intx[0]++;
+        System.err.println("MYTODO: " + intx[0]);
+        System.err.println("MYTODO: " + intx[1]);
+        
+        
+        int[][] ints = new int[3][];
+        ints[0] = new int[] {1,2};
+        System.err.println("MYTODO: " + ints[0][1]);
+        for (int[] a : ints) {
+            for (int i : a) {
+                System.err.println("MYTODO: " + i);
+            }
+        }
         //listToArrayTest();
         //listTest();
         //arrayTest();
