@@ -3,10 +3,12 @@ package cz.hk.gmc.various;
 import java.io.*;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.logging.*;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class Main {
-    private static Logger LOGGER = Logger.getLogger(Main.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(ArraysPlayground.class);
 
     static {
         //System.out.println("static call");
@@ -27,7 +29,17 @@ class Main {
         //printMultiple("format", new String[] { "one" }, "two");
         //substr();
         //replaceSeparators();
-        java8();
+        //java8();
+        logging();
+    }
+    
+    private static void logging() {
+        final Set<String> set = new HashSet<>();
+        set.add("one");
+        set.add("two");
+        set.add("three");
+        logger.error("hello: {}", set);
+        logger.error("hello: " + set);
     }
     
     private static void java8() {
@@ -227,8 +239,8 @@ class Main {
 
     private static void log() {
         System.out.println("hello from main1");
-        LOGGER.log(Level.WARNING, "Hello this is a warning message");
-        LOGGER.log(Level.INFO, "Hello this is an info message");
+        logger.warn("Hello this is a warning message");
+        logger.info("Hello this is an info message");
         System.out.println("hello from main2");
     }
 
