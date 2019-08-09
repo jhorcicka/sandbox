@@ -47,6 +47,7 @@
         <module>jersey</module>
         <module>jruby</module>
         <module>ocajp8</module>
+        <module>jira</module>
     </modules>
 
     <properties>
