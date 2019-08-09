@@ -30,7 +30,22 @@ class Main {
         //substr();
         //replaceSeparators();
         //java8();
-        logging();
+        //logging();
+        cycle();
+    }
+    
+    private static void cycle() {
+        for (int x = 10; x > 5; x++) {
+            if (x == 16) x-=11;
+            System.out.print(x + " ");
+        }
+        System.err.println("MYTODO: ");
+        
+        int[] a = {1,2,3,4};
+        for (int j: a) {
+            if (j == 2) continue;
+            for (int x = 0; x < 3; System.out.print(x)) {x++;}
+        }
     }
     
     private static void logging() {

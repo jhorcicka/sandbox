@@ -45,6 +45,8 @@
 		<module>cxf-ws</module>
         <module>axis2-ws</module>
         <module>jersey</module>
+        <module>jruby</module>
+        <module>ocajp8</module>
     </modules>
 
     <properties>
