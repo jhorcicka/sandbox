@@ -1,39 +1,47 @@
 package nl.hi.kuba.jira;
 
-import com.atlassian.jira.rest.client.api.domain.Issue;
-
 public class Main {
     private static String USERNAME = "";
     private static String PASSWORD = "";
     private static String URL = "";
+
+    private static void printReport(final Sprint sprint) {
+        System.out.println("Epics");
+
+        for (final String epicName : sprint.getEpicNames()) {
+            System.out.println(epicName);
+        }
+
+        System.out.println("Sprint in numbers");
+        System.out.println("2 weeks");
+        System.out.println(sprint.getCommitmentsCount() + " commitments");
+        System.out.println(sprint.getEmergingCount() + " emerging");
+        System.out.println(sprint.getSpilloversCount() + " spillovers");
+
+        System.out.println("Planned work");
+
+        for (final String epicName : sprint.getCommitments().keySet()) {
+            System.out.println(epicName);
+            for (final JiraIssue issue : sprint.getCommitments().get(epicName)) {
+                System.out.println(issue.toString());
+            }
+        }
+
+        System.out.println("Unplanned work");
+
+        for (final String epicName : sprint.getEmergedIssues().keySet()) {
+            System.out.println(epicName);
+            for (final JiraIssue issue : sprint.getEmergedIssues().get(epicName)) {
+                System.out.println(issue);
+            }
+        }
+    }
     
     public static void main(String[] args) {
         try {
             final JiraClient client = new JiraClient(USERNAME, PASSWORD, URL);
-            final String sprint = client.getSprint("Papa");
-            System.err.println("MYTODO: " + sprint);
-            /*
-            sprint info
-            - number of issues
-            - commitment issues
-            - added issues
-            - removed issues
-            */
-
-            final Issue issue = client.getIssue("DI-104");
-            /*
-            issue info needed
-            - v ID
-            - v epic name
-            - type (bug/story)
-            - status
-             */
-            if (issue != null) {
-                System.err.println(
-                        "MYTODO:\n" + "id=" + issue.getKey() + "\n" + "type=" + issue.getIssueType().getName() + "\n"
-                                + "epic=" + issue.getFieldByName("Epic Link").getValue() + "\n" + "status=" + issue
-                                .getStatus().getName() + "\n");
-            }
+            final Sprint sprint = new Sprint(client.getCurrentSprint());
+            printReport(sprint);
         } catch (final Exception e) {
             e.printStackTrace();
         }

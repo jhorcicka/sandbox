@@ -1,6 +1,8 @@
 package nl.hi.kuba.jira;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.atlassian.jira.rest.client.api.IssueRestClient;
@@ -11,6 +13,8 @@ import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientF
 import com.atlassian.util.concurrent.Promise;
 
 class JiraClient {
+    private static final String JQL_CURRENT_SPRINT =
+            "(project = DC or project = DI) and sprint in openSprints() and (issuetype = bug or issuetype = story)";
     private String username;
     private String password;
     private String jiraUrl;
@@ -38,23 +42,18 @@ class JiraClient {
         return issue.get();
     }
 
-    String getSprint(final String sprintId) throws ExecutionException, InterruptedException {
-        final SearchResult searchResult = restClient.getSearchClient().searchJql(
-                "(project = DC or project = DI) and sprint in openSprints() and (issuetype = bug or issuetype = story)")
-                .get();
-        for (Issue issue : searchResult.getIssues()) {
-            System.err.println("issue: " + issue.getKey() + ": " + issue.getSummary());
+    List<JiraIssue> getCurrentSprint() throws ExecutionException, InterruptedException {
+        final SearchResult searchResult = restClient.getSearchClient().searchJql(JQL_CURRENT_SPRINT).get();
+        final List<JiraIssue> jiraIssues = new ArrayList<>();
+
+        for (final Issue issue : searchResult.getIssues()) {
+            final Object epicObject = issue.getFieldByName("Epic Link").getValue();
+            final String epicId = epicObject == null ? null : epicObject.toString();
+            final String epicName = epicId == null ? "Others" : getIssue(epicId).getSummary();
+            jiraIssues.add(new JiraIssue(issue.getKey(), issue.getSummary(), epicName, issue.getStatus().getName(),
+                    issue.getIssueType().getName()));
         }
-        
-        /*
-        ProjectRestClient projectRestClient = restClient.getProjectClient();
-        final Promise<Project> projectPromise = projectRestClient.getProject("DC");
-        final Project project = projectPromise.get();
-        project.
-        for (BasicComponent bc : project.getComponents()) {
-            System.err.println("MYTODO: " + bc.getName());
-        }
-        */
-        return "todo";
+
+        return jiraIssues;
     }
 }
