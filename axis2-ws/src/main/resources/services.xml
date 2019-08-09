@@ -3,7 +3,7 @@
 
 	<description>Simple Hello Service</description>
 
-	<parameter name="ServiceClass">cz.hk.gmc.HelloService</parameter>
+    <parameter name="ServiceClass">nl.hi.kuba.HelloService</parameter>
 
 	<operation name="sayHi" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://gmc.hk.cz/xsd">
 		<actionMapping>http://gmc.hk.cz/xsd/sayHi</actionMapping>
@@ -47,7 +47,7 @@
 				</sp:SignedSupportingTokens>
 
 				<ramp:RampartConfig xmlns:ramp="http://ws.apache.org/rampart/policy">
-					<ramp:passwordCallbackClass>cz.hk.gmc.PasswordHandler</ramp:passwordCallbackClass>
+                    <ramp:passwordCallbackClass>nl.hi.kuba.PasswordHandler</ramp:passwordCallbackClass>
 				</ramp:RampartConfig>
 			</wsp:All>
 		</wsp:ExactlyOne>

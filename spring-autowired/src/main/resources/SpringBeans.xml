@@ -10,12 +10,12 @@
 
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
-	<bean id="CustomerBean" class="cz.hk.gmc.autowired.Customer">
+    <bean id="CustomerBean" class="nl.hi.kuba.autowired.Customer">
 		<property name="action" value="buy" />
 		<property name="type" value="1" />
 	</bean>
 
-	<bean id="PersonBean" class="cz.hk.gmc.autowired.Person">
+    <bean id="PersonBean" class="nl.hi.kuba.autowired.Person">
 		<property name="name" value="john" />
 		<property name="address" value="address ABC" />
 		<property name="age" value="29" />

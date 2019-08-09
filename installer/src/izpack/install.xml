@@ -36,7 +36,7 @@
 
 	<panels>
 		<panel classname="InfoPanel" />
-		<panel classname="cz.hk.gmc.panels.MyPanel" id="UserInputPanel" />
+        <panel classname="nl.hi.kuba.panels.MyPanel" id="UserInputPanel"/>
 		<panel classname="TargetPanel" />
 		<panel classname="InstallPanel" />
 		<panel classname="FinishPanel" />

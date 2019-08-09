@@ -1,10 +1,11 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import cz.hk.gmc.various.Entity;
-
-import static org.junit.Assert.*;
+import nl.hi.kuba.various.Entity;
 
 public class EntityTest {
     Entity e = new Entity();
