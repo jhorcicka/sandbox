@@ -1,5 +1,7 @@
 package nl.hi.kuba.jira;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -23,8 +25,18 @@ class Sprint {
         }
     }
 
+    List<JiraIssue> getCommitments(final String epicName) {
+        final List<JiraIssue> list = new ArrayList<>(issues.get(epicName));
+        list.sort(Comparator.comparing(JiraIssue::getId));
+        return list;
+    }
+
     Map<String, Set<JiraIssue>> getCommitments() {
         return issues;
+    }
+
+    Set<JiraIssue> getEmergedIssues(final String epicName) {
+        return new HashSet<>();
     }
 
     Map<String, Set<JiraIssue>> getEmergedIssues() {
