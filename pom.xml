@@ -48,6 +48,7 @@
         <module>jruby</module>
         <module>ocajp8</module>
         <module>jira</module>
+        <module>sass</module>
     </modules>
 
     <properties>
