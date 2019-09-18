@@ -2,9 +2,7 @@ package nl.hi.kuba.various;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -267,7 +265,38 @@ class Main {
         }
     }
 
-    public static void main(String[] args) throws IOException, SQLException {
+    private static void dataTypes() {
+        char[] chars = new char[3];
+        chars[2] = 'a';
+        chars[1] = 'b';
+        System.err.println("MYTODO: " + chars.length);
+
+        for (char x : chars) {
+            System.err.println("MYTODO: " + x);
+        }
+
+        int[] ints = new int[3];
+        for (int ix : ints) {
+            System.err.println("MYTODO: " + ix);
+        }
+
+        byte b = 127;
+        char c = 'z';
+        int i = -1;
+        long l = -1;
+        float f = 1.0f;
+        double d = 1.0;
+
+        System.err.println("MYTODO: " + b);
+        System.err.println("MYTODO: " + c);
+        System.err.println("MYTODO: " + i);
+        System.err.println("MYTODO: " + l);
+        System.err.println("MYTODO: " + f);
+        System.err.println("MYTODO: " + d);
+    }
+
+    public static void main(String[] args) throws Exception {
+        dataTypes();
         //arrays();
         //syntax();
         //maven();
@@ -284,6 +313,6 @@ class Main {
         //replaceSeparators();
         //java8();
         //logging();
-        cycle();
+        //cycle();
     }
 }
