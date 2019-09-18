@@ -49,6 +49,7 @@
         <module>ocajp8</module>
         <module>jira</module>
         <module>sass</module>
+        <module>lesscss</module>
     </modules>
 
     <properties>

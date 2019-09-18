@@ -1,9 +1,9 @@
 package nl.hi.kuba.jira;
 
 public class Main {
-    private static String USERNAME = "";
+    private static String URL = "https://jira.humaninference.com";
+    private static String USERNAME = "j.horcicka@humaninference.com";
     private static String PASSWORD = "";
-    private static String URL = "";
 
     private static void printReport(final Sprint sprint) {
         System.out.println("== Epics");
