@@ -1,5 +1,9 @@
 package nl.hi.kuba.jira;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     private static String URL = "https://jira.humaninference.com";
     private static String USERNAME = "j.horcicka@humaninference.com";
@@ -7,16 +11,18 @@ public class Main {
 
     private static void printReport(final Sprint sprint) {
         System.out.println("== Epics");
+        final List<String> epics = new ArrayList<>(sprint.getEpicNames());
+        Collections.sort(epics);
 
-        for (final String epicName : sprint.getEpicNames()) {
+        for (final String epicName : epics) {
             System.out.println(epicName);
         }
 
         System.out.println("== Sprint in numbers");
         System.out.println("2 weeks");
-        System.out.println(sprint.getCommitmentsCount() + " commitments");
-        System.out.println(sprint.getEmergingCount() + " emerging");
-        System.out.println(sprint.getSpilloversCount() + " spillovers");
+        System.out.println(sprint.getCommitmentsCount() + " commitments"); // todo
+        System.out.println(sprint.getEmergingCount() + " emerging"); // todo
+        System.out.println(sprint.getSpilloversCount() + " spillovers"); // todo
 
         System.out.println("== Planned work");
 
