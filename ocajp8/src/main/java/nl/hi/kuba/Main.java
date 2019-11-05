@@ -1,5 +1,6 @@
 package nl.hi.kuba;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -51,19 +52,7 @@ public class Main {
         System.err.println("MYTODO: byte b=" + b);
     }
 
-    private static void array() {
-        int[][] A = new int[2][3];
-        A[1][0] = 1;
-        A[1][1] = 2;
-        A[1][2] = 3;
-        printArray(A);
-
-        int[][] B;
-        B = new int[2][3];
-        B[1][2] = 10;
-        printArray(B);
-
-    }
+    static int x = 10;
 
     private static void printArray(int[][] a) {
         System.err.println("MYTODO: array");
@@ -112,9 +101,79 @@ public class Main {
         System.err.println("MYTODO: " + p2);
     }
 
+    private static void array() {
+        int[][] A = new int[2][3];
+        A[1][0] = 1;
+        A[1][1] = 2;
+        A[1][2] = 3;
+        printArray(A);
+
+        int[][] B;
+        B = new int[2][3];
+        B[1][2] = 10;
+        printArray(B);
+
+        int[] ints = new int[3];
+        String[] strings = new String[3];
+
+        for (int i = 0; i < 3; i++) {
+            System.err.println("MYTODO: " + ints[i]);
+            System.err.println("MYTODO: " + strings[i]);
+        }
+    }
+
+    private static void staticFor() {
+        for (int x = 1; x < 3; x++) {
+        }
+        System.err.println("MYTODO: " + x);
+    }
+
+    /*
+    private static int abc() {return 1;}
+    private static double abc() {return 1.0;}
+    */
+
+    private static void arrays() {
+        int[][] ints = new int[3][1];
+        String[][] strings = {{"1", "2"}, {"-"}};
+        System.err.println("MYTODO: " + strings[1]);
+        System.err.println("MYTODO: " + strings[1][0]);
+        System.err.println("MYTODO: " + strings[1][1]);
+    }
+
+    private static void subclasses() {
+        SuperClass sc = new Sub();
+        sc.method();
+
+        char ch = 'c';
+        int i = (int) ch;
+        char c = (int) 'd';
+
+        System.err.println("MYTODO: " + sc.pv);
+        System.err.println("MYTODO: " + SuperClass.spv);
+        System.err.println("MYTODO: " + (SuperClass.spv == sc.pv));
+    }
+
+    private static void date() {
+        LocalDate ld = LocalDate.of(2000, 3, 1);
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/M/yyyy");
+        System.err.println("MYTODO: " + ld.format(fmt));
+    }
+    
     public static void main(String... args) {
-        timeClasses();
+        int out = 1 + 2 * 0 / 2;
+        System.err.println("MYTODO: " + out);
+
+        final String[] split = "Whizlabs".split("\\S");
+        System.err.println("MYTODO: " + split.length);
+        System.err.println(split);
+        
         /*
+        date();
+        subclasses();
+        arrays();
+        staticFor();
+        timeClasses();
         sizes();
         codePoint();
         polymorphism();
