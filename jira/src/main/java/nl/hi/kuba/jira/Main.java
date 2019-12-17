@@ -26,7 +26,7 @@ public class Main {
 
         System.out.println("== Planned work");
 
-        for (final String epicName : sprint.getCommitments().keySet()) {
+        for (final String epicName : epics) {
             System.out.println(epicName);
             for (final JiraIssue issue : sprint.getCommitments(epicName)) {
                 System.out.println(issue.toString());
