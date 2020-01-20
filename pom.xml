@@ -50,6 +50,7 @@
         <module>jira</module>
         <module>sass</module>
         <module>lesscss</module>
+        <module>csv</module>
     </modules>
 
     <properties>
