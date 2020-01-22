@@ -1,5 +1,8 @@
 package nl.hi.kuba.csv;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -38,16 +41,14 @@ public class OpenCsv {
         csvReader.close();
     }
 
-    private static String[] readLine(final CSVReader reader) throws IOException {
+    private static String[] readLine(final CSVReader reader) {
         String[] line = null;
         try {
             line = reader.readNext();
         } catch (CsvMalformedLineException e) {
-            System.err.println("MYTODO: " + e.getLineNumber());
+            long lineNumber = e.getLineNumber();
             e.printStackTrace();
-        } catch (CsvValidationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (CsvValidationException | IOException e) {
             e.printStackTrace();
         }
 
@@ -63,8 +64,42 @@ public class OpenCsv {
         }
     }
 
+    private static void validateOneByOne() throws Exception {
+        final FileWriter writer = new FileWriter(new File("/tmp/test-output.csv"));
+        Reader reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(PATH).toURI()));
+        CSVReader csvReader = new CSVReader(reader);
+        long linesRead = 0;
+
+        String[] columns;
+        do {
+            try {
+                columns = csvReader.readNext();
+                final String correctLine = String.join(",", columns) + "\n";
+                writer.write(correctLine);
+                linesRead++;
+
+                System.err.println("MYTODO: correct line=" + correctLine);
+            } catch (CsvMalformedLineException e) {
+                System.err.println("MYTODO: wrong line=" + e.getLineNumber());
+                reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(PATH).toURI()));
+                for (int i = 0; i <= linesRead; i++) {
+                    ((BufferedReader) reader).readLine(); // skip previously read line
+                }
+                csvReader.close();
+                csvReader = new CSVReader(reader);
+            } catch (CsvValidationException | IOException e) {
+                e.printStackTrace();
+            }
+        } while (reader.ready());
+
+        csvReader.close();
+        reader.close();
+        writer.close();
+    }
+
     public static void main(String[] args) throws Exception {
         //readAllTest();
-        readOneByOneTest();
+        //readOneByOneTest();
+        validateOneByOne();
     }
 }
