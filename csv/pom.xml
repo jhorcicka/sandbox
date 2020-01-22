@@ -17,5 +17,16 @@
 			<artifactId>opencsv</artifactId>
 			<version>5.0</version>
 		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.javacsv</groupId>
+			<artifactId>javacsv</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.csveed/csveed -->
+		<dependency>
+			<groupId>org.csveed</groupId>
+			<artifactId>csveed</artifactId>
+			<version>0.6.0</version>
+		</dependency>
 	</dependencies>
 </project>

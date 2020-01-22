@@ -10,7 +10,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvMalformedLineException;
 import com.opencsv.exceptions.CsvValidationException;
 
-public class Main {
+public class OpenCsv {
     private static final String PATH = "bad_input.csv";
     //private static final String PATH = "input.csv";
 
@@ -56,7 +56,7 @@ public class Main {
 
     private static void readAllTest() throws Exception {
         final Reader reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(PATH).toURI()));
-        for (final String[] row : Main.readAll(reader)) {
+        for (final String[] row : OpenCsv.readAll(reader)) {
             for (final String column : row) {
                 System.err.println("MYTODO: " + column);
             }
