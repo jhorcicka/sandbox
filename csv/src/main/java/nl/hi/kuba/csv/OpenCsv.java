@@ -14,8 +14,7 @@ import com.opencsv.exceptions.CsvMalformedLineException;
 import com.opencsv.exceptions.CsvValidationException;
 
 public class OpenCsv {
-    private static final String PATH = "bad_input.csv";
-    //private static final String PATH = "input.csv";
+    private static final String PATH = "input.csv";
 
     private static List<String[]> readAll(Reader reader) throws Exception {
         final CSVReader csvReader = new CSVReader(reader);
