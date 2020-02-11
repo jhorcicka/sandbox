@@ -16,11 +16,14 @@ import java.util.List;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 
 public class OpenCsv {
     private static final String CORRECT = "input.csv";
-    private static final String INCORRECT = "bad_input_1.csv";
-    private static final Integer READ_AHEAD_LIMIT = 32768;
+    private static final String INCORRECT = "bad_input_3.csv";
+    private static final String INPUT = INCORRECT;
+    private static final Integer READ_AHEAD_LIMIT = 1000;
+    //private static final Integer READ_AHEAD_LIMIT = 32768;
 
     private static List<String[]> readAll(Reader reader) throws Exception {
         final CSVReader csvReader = new CSVReader(reader);
@@ -31,7 +34,7 @@ public class OpenCsv {
     }
 
     private static void readOneByOneTest() throws Exception {
-        final Reader reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(CORRECT).toURI()));
+        final Reader reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(INPUT).toURI()));
         final CSVReader csvReader = new CSVReader(reader);
 
         String[] line;
@@ -58,7 +61,7 @@ public class OpenCsv {
     }
 
     private static void readAllTest() throws Exception {
-        final Reader reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(CORRECT).toURI()));
+        final Reader reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(INPUT).toURI()));
         for (final String[] row : OpenCsv.readAll(reader)) {
             for (final String column : row) {
                 System.err.println("MYTODO: " + column);
@@ -68,7 +71,7 @@ public class OpenCsv {
 
     private static void readOneByOne() throws Exception {
         final FileWriter writer = new FileWriter(new File("/tmp/test-output.csv"));
-        Reader reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(CORRECT).toURI()));
+        Reader reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(INPUT).toURI()));
         CSVReader csvReader = new CSVReader(reader);
         long linesRead = 0;
 
@@ -83,7 +86,7 @@ public class OpenCsv {
                 System.err.println("MYTODO: correct line=" + correctLine);
             } catch (IOException e) {
                 System.err.println("MYTODO: wrong line=" + (linesRead + 1));
-                reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(CORRECT).toURI()));
+                reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource(INPUT).toURI()));
                 for (int i = 0; i <= linesRead; i++) {
                     ((BufferedReader) reader).readLine(); // skip previously read line
                 }
@@ -97,23 +100,32 @@ public class OpenCsv {
         writer.close();
     }
 
-    private static void validateOneByOne() throws IOException, URISyntaxException {
+    private static void validateOneByOneWithReader() throws IOException, URISyntaxException {
         try (InputStream inputStream = new FileInputStream(
-                Paths.get(ClassLoader.getSystemResource(INCORRECT).toURI()).toFile());
+                Paths.get(ClassLoader.getSystemResource(INPUT).toURI()).toFile());
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             reader.mark(READ_AHEAD_LIMIT);
             reader.reset();
             long lineCounter = 0;
-            CSVReader csvReader = new CSVReader(reader);
+            final CSVParser parser = new CSVParserBuilder()
+                    //.withStrictQuotes(true)
+                    //.withIgnoreQuotations(true)
+                    .withSeparator(';').withQuoteChar('"')
+                    //.withEscapeChar('\u0000')
+                    .withEscapeChar('\\').build();
+            CSVReader csvReader = new CSVReaderBuilder(reader).withCSVParser(parser).build();
 
             do {
                 lineCounter++;
                 String[] line = null;
 
                 try {
+                    if (lineCounter == 56211) {
+                        System.err.println("MYTODO: ");
+                    }
                     line = csvReader.readNext();
-                    System.err.println("MYTODO: " + String.join(";", line));
-                } catch (IOException e) {
+                    System.err.println("MYTODO: " + lineCounter + ": " + String.join(";", line));
+                } catch (Exception e) {
                     if (line != null) {
                         System.err.println(
                                 "MYTODO: " + "Invalid CSV line (number " + lineCounter + ") was encountered ('" + line
@@ -124,12 +136,14 @@ public class OpenCsv {
                     }
                 }
             } while (reader.ready());
+
+            System.err.println("MYTODO: " + lineCounter);
         }
     }
 
     private static void validateOneByOneWithParser() throws IOException, URISyntaxException {
         try (InputStream inputStream = new FileInputStream(
-                Paths.get(ClassLoader.getSystemResource(INCORRECT).toURI()).toFile());
+                Paths.get(ClassLoader.getSystemResource(INPUT).toURI()).toFile());
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             reader.mark(READ_AHEAD_LIMIT);
             reader.reset();
@@ -138,7 +152,7 @@ public class OpenCsv {
             final CSVParser parser = new CSVParserBuilder()
                     //.withStrictQuotes(true)
                     //.withIgnoreQuotations(true)
-                    .withSeparator(';').withQuoteChar('"').build();
+                    .withSeparator(';').withQuoteChar('"').withEscapeChar('\\').build();
             long lineCounter = 0;
 
             do {
@@ -148,7 +162,7 @@ public class OpenCsv {
                 try {
                     line = reader.readLine();
                     parser.parseLine(line);
-                    System.err.println("MYTODO: correctLine=" + line + ", pending=" + parser.isPending());
+                    //System.err.println("MYTODO: correctLine=" + line + ", pending=" + parser.isPending());
                 } catch (IOException e) {
                     if (line != null) {
                         System.err.println(
@@ -167,7 +181,7 @@ public class OpenCsv {
         //readAllTest();
         //readOneByOneTest();
         //readOneByOne();
-        //validateOneByOne();
-        validateOneByOneWithParser();
+        validateOneByOneWithReader();
+        //validateOneByOneWithParser();
     }
 }
