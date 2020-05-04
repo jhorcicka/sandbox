@@ -51,6 +51,7 @@
         <module>sass</module>
         <module>lesscss</module>
         <module>csv</module>
+        <module>redshift</module>
     </modules>
 
     <properties>
