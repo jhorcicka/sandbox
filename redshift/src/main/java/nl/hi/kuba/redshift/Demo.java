@@ -24,7 +24,7 @@ public class Demo {
             //Dynamically load driver at runtime.
             //Redshift JDBC 4.1 driver: com.amazon.redshift.jdbc41.Driver
             //Redshift JDBC 4 driver: com.amazon.redshift.jdbc4.Driver
-            Class.forName("com.amazon.redshift.jdbc.Driver");
+            Class.forName(JDBC_DRIVER);
 
             //Open a connection and define properties.
             System.out.println("Connecting to database...");
