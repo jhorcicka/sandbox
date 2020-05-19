@@ -120,11 +120,8 @@ public class OpenCsv {
                 String[] line = null;
 
                 try {
-                    if (lineCounter == 56211) {
-                        System.err.println("MYTODO: ");
-                    }
                     line = csvReader.readNext();
-                    System.err.println("MYTODO: " + lineCounter + ": " + String.join(";", line));
+                    //System.err.println("MYTODO: " + lineCounter + ": " + String.join(";", line));
                 } catch (Exception e) {
                     if (line != null) {
                         System.err.println(
@@ -181,7 +178,7 @@ public class OpenCsv {
         //readAllTest();
         //readOneByOneTest();
         //readOneByOne();
-        validateOneByOneWithReader();
+        //validateOneByOneWithReader();
         //validateOneByOneWithParser();
     }
 }
