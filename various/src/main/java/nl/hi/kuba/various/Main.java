@@ -295,8 +295,16 @@ class Main {
         System.err.println("MYTODO: " + d);
     }
 
+    private static void regex() {
+        final String re = "(\\p{Ll})(\\p{Lu})";
+        final String key = "hiBYE123";
+        final String result = key.replaceAll(re, "$1 $2");
+        System.err.println("MYTODO: " + result);
+    }
+
     public static void main(String[] args) throws Exception {
-        dataTypes();
+        regex();
+        //dataTypes();
         //arrays();
         //syntax();
         //maven();
