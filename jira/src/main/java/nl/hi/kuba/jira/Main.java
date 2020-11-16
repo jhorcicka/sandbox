@@ -5,35 +5,35 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main {
-    private static String URL = "https://jira.humaninference.com";
-    private static String USERNAME = "j.horcicka@humaninference.com";
+    private static String URL = "";
+    private static String USERNAME = "";
     private static String PASSWORD = "";
 
     private static void printReport(final Sprint sprint) {
-        System.out.println("== Epics");
+        put("== Epics");
         final List<String> epics = new ArrayList<>(sprint.getEpicNames());
         Collections.sort(epics);
 
         for (final String epicName : epics) {
-            System.out.println(epicName);
+            put(epicName);
         }
 
-        System.out.println("== Sprint in numbers");
-        System.out.println("2 weeks");
-        System.out.println(sprint.getCommitmentsCount() + " commitments"); // todo
-        System.out.println(sprint.getEmergingCount() + " emerging"); // todo
-        System.out.println(sprint.getSpilloversCount() + " spillovers"); // todo
+        put("== Sprint in numbers");
+        put("2 weeks");
+        put(sprint.getCommitmentsCount() + " commitments"); // todo
+        put(sprint.getEmergingCount() + " emerging"); // todo
+        put(sprint.getSpilloversCount() + " spillovers"); // todo
 
-        System.out.println("== Planned work");
+        put("== Planned work");
 
         for (final String epicName : epics) {
-            System.out.println(epicName);
+            put(epicName);
             for (final JiraIssue issue : sprint.getCommitments(epicName)) {
-                System.out.println(issue.toString());
+                put(issue.toString());
             }
         }
 
-        System.out.println("== Unplanned work");
+        put("== Unplanned work");
 
         for (final String epicName : sprint.getEmergedIssues().keySet()) {
             System.out.println(epicName);
@@ -41,6 +41,10 @@ public class Main {
                 System.out.println(issue);
             }
         }
+    }
+
+    private static void put(final String text) {
+        System.out.println(text);
     }
     
     public static void main(String[] args) {
