@@ -1,58 +1,23 @@
 package nl.hi.kuba.mocking;
 
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import org.mockito.plugins.MockMaker;
+
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(Service.class)
 public class ServiceTestMockito {
-    @Test
-    public void testBasePublicFinal() {
-        try {
-            Service2 mock = PowerMockito.mock(Service2.class);
-            PowerMockito.when(mock.publicFinalMethodInAbstract()).thenReturn("Mocked");
-
-            System.out.println("publicFinalMethodInAbstract=" + mock.publicFinalMethodInAbstract());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void testFinalWithArguments() {
-        try {
-            Service mock = PowerMockito.mock(Service.class);
-            PowerMockito.when(mock.finalMethodWithArguments(42)).thenReturn("Mocked");
-
-            System.out.println("finalMethodWithArguments=" + mock.finalMethodWithArguments(42));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     @Test
     public void testFinal() {
         try {
-            Service mock = PowerMockito.mock(Service.class);
-            PowerMockito.when(mock.finalMethod()).thenReturn("Mocked");
+            final Service mock = mock(Service.class);
+            //final Service mock = MockMaker.createMock(Service.class);
+            //final Service mock = mock(Service.class);
+            //when(mock.finalMethod()).thenReturn("Mocked");
+            given(mock.finalMethod()).willReturn("Mocked");
 
             System.out.println("finalMethod=" + mock.finalMethod());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void testPublic() {
-        try {
-            Service mock = Mockito.mock(Service.class);
-            Mockito.when(mock.publicMethod()).thenReturn("Mocked");
-
-            System.out.println("publicMethod=" + mock.publicMethod());
         } catch (Exception e) {
             e.printStackTrace();
         }
