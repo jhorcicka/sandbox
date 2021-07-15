@@ -1,4 +1,4 @@
-package nl.hi.kuba;
+package nl.hi.kuba.ocajp;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -6,6 +6,8 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
+    int instanceVar;
+    static int staticVar;
     private static class Animal {
         public void eat() {
             System.err.println("MYTODO: Animal eats...");
@@ -161,6 +163,9 @@ public class Main {
     }
     
     public static void main(String... args) {
+        System.err.println("MYTODO: " + staticVar);
+        System.err.println("MYTODO: " + new Main().instanceVar);
+
         int out = 1 + 2 * 0 / 2;
         System.err.println("MYTODO: " + out);
 

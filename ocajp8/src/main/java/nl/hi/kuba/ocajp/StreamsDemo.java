@@ -1,4 +1,4 @@
-package nl.hi.kuba;
+package nl.hi.kuba.ocajp;
 
 import java.util.List;
 

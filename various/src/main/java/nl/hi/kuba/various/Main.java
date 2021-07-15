@@ -302,8 +302,26 @@ class Main {
         System.err.println("MYTODO: " + result);
     }
 
+    private static void myMethodA(
+            final String one,
+            final Boolean two,
+            final Integer three,
+            final Float four,
+            final Double five,
+            final Number six) {
+    }
+
+    private static void myMethodB(
+            final String one,
+            final Boolean two,
+            final Integer three,
+            final Float four,
+            final Double five,
+            final Number six) {
+    }
+
     public static void main(String[] args) throws Exception {
-        regex();
+        //regex();
         //dataTypes();
         //arrays();
         //syntax();

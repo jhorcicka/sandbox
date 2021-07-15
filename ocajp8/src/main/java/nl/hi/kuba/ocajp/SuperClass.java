@@ -1,4 +1,4 @@
-package nl.hi.kuba;
+package nl.hi.kuba.ocajp;
 
 public class SuperClass {
     protected static int spv;

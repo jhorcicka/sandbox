@@ -1,4 +1,4 @@
-package nl.hi.kuba;
+package nl.hi.kuba.ocajp;
 
 public class SubSub extends Sub {
     public void method() {
