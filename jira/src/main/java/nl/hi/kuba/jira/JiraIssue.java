@@ -36,6 +36,6 @@ public class JiraIssue {
     }
 
     public String toString() {
-        return getId() + " [" + getType() + "]: " + getSubject() + " " + getStatus().toUpperCase();
+        return getId() + " [" + getType() + "]: " + getSubject();
     }
 }
