@@ -2,6 +2,7 @@ package nl.hi.kuba.ocpjp;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Main {
@@ -20,7 +22,34 @@ public class Main {
         // datetime();
         //enumMap();
         //stringUtils();
-        ocpjp8();
+        //ocpjp8();
+
+        // tests
+        //t1(args);
+        t2();
+    }
+
+    private static void t2() {
+        Stream<String> nameStream = Stream.of("Alice", "Bob", "Chuck");
+        nameStream.peek(System.out::println).findAny();
+        Integer.compareUnsigned(10, 20);
+
+        ArrayDeque<String> queue = new ArrayDeque<>();
+        queue.add("a");
+        queue.add("c");
+        queue.add("b");
+        queue.add("a");
+        queue.removeLastOccurrence("a");
+        System.err.println("MYTODO: " + queue);
+
+        IntStream intStream = IntStream.of(1,2,2,4);
+        Stream<String> stream = intStream.boxed().map(item -> item.toString());
+        System.err.println("MYTODO: " + stream.distinct().findFirst());
+    }
+
+    private static void t1(String[] args) {
+        System.err.println("MYTODO: " + args);
+        assert args == null : "Null";
     }
 
     private static void ocpjp8() {

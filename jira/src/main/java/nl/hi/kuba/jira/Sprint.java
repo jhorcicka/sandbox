@@ -10,6 +10,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 class Sprint {
+    static String[] PROGRESS_STATES = {
+            "Open", "In Progress", "Review/merge", "In Test", "Done"
+    };
     private Set<String> epicNames = new HashSet<>();
     private Map<String, Set<JiraIssue>> issues = new HashMap<>();
 
@@ -20,14 +23,27 @@ class Sprint {
             if (!issues.containsKey(issue.getEpic())) {
                 issues.put(issue.getEpic(), new HashSet<>());
             }
+            if (!issues.containsKey(issue.getStatus())) {
+                issues.put(issue.getStatus(), new HashSet<>());
+            }
 
             issues.get(issue.getEpic()).add(issue);
+            issues.get(issue.getStatus()).add(issue);
         }
     }
 
-    List<JiraIssue> getCommitments(final String epicName) {
+    List<JiraIssue> getCommitmentsByEpic(final String epicName) {
         final List<JiraIssue> list = new ArrayList<>(issues.get(epicName));
         list.sort(Comparator.comparing(JiraIssue::getId));
+        return list;
+    }
+
+    List<JiraIssue> getIssuesByProgressStatus(final String progressStatus) {
+        final List<JiraIssue> list = new ArrayList<>();
+        if (issues.containsKey(progressStatus)) {
+            list.addAll(issues.get(progressStatus));
+            list.sort(Comparator.comparing(JiraIssue::getId));
+        }
         return list;
     }
 

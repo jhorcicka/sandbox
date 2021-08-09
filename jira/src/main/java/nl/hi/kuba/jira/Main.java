@@ -24,21 +24,12 @@ public class Main {
         put(sprint.getEmergingCount() + " emerging"); // todo
         put(sprint.getSpilloversCount() + " spillovers"); // todo
 
-        put("== Planned work");
+        put("== Issues");
 
-        for (final String epicName : epics) {
-            put(epicName);
-            for (final JiraIssue issue : sprint.getCommitments(epicName)) {
+        for (final String progressStatus : Sprint.PROGRESS_STATES) {
+            put("== " + progressStatus);
+            for (final JiraIssue issue : sprint.getIssuesByProgressStatus(progressStatus)) {
                 put(issue.toString());
-            }
-        }
-
-        put("== Unplanned work");
-
-        for (final String epicName : sprint.getEmergedIssues().keySet()) {
-            System.out.println(epicName);
-            for (final JiraIssue issue : sprint.getEmergedIssues(epicName)) {
-                System.out.println(issue);
             }
         }
     }
