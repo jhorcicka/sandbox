@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 class Sprint {
     static String[] PROGRESS_STATES = {
-            "Open", "In Progress", "In Review", "Resolved", "Done"
+            "Done", "Resolved", "In Review", "In Progress", "Open"
     };
     private Set<String> epicNames = new HashSet<>();
     private Map<String, Set<JiraIssue>> issues = new HashMap<>();
