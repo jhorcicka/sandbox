@@ -170,7 +170,6 @@ public class Main {
         final UnaryOperator<Double> up2 = d -> d + 3;
         final Function<Double, Double> up3 = up1.compose(up2);
         System.err.println("MYTODO: " + up3.apply(2.1));
-
     }
 
     private static void predicates() {
