@@ -11,5 +11,12 @@
 
     <artifactId>ocajp8</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.24</version>
+        </dependency>
+    </dependencies>
 
 </project>

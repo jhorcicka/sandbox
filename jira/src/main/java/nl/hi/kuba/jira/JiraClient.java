@@ -14,7 +14,7 @@ import com.atlassian.util.concurrent.Promise;
 
 class JiraClient {
     private static final String JQL_CURRENT_SPRINT =
-            "(project = MDM) and sprint in openSprints() and (issuetype = bug or issuetype = story)";
+            "(project = MDM) and sprint in openSprints() and (issuetype = bug or issuetype = story or issuetype = question)";
     private String username;
     private String password;
     private String jiraUrl;
