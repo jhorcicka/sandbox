@@ -11,6 +11,8 @@ import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.attribute.DosFileAttributes;
+import java.nio.file.attribute.PosixFileAttributes;
 import java.nio.file.attribute.UserPrincipal;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,36 +24,48 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.MonthDay;
 import java.time.Period;
 import java.time.Year;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.ListResourceBundle;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.IntSupplier;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 
 import org.postgresql.ds.PGSimpleDataSource;
 
+import com.sun.rowset.CachedRowSetImpl;
 import com.sun.rowset.JdbcRowSetImpl;
 
 public class Main {
@@ -73,7 +87,7 @@ public class Main {
     }
 
     static class Search extends SimpleFileVisitor<Path> {
-        public FileVisitResult visitFile(final Path path, BasicFileAttributes attributes) throws IOException {
+        public FileVisitResult visitFile(final Path path, BasicFileAttributes attributes) {
             final PathMatcher matcher = FileSystems.getDefault().getPathMatcher("regex:.*");
             if (matcher.matches(path.getFileName())) {
                 System.err.println("MYTODO: " + path);
@@ -89,6 +103,22 @@ public class Main {
         }
     }
 
+    public enum Speed {
+        FAST(2),
+        FASTER(3),
+        SLOW(1);
+        private final int speed;
+        Speed(final int speedCode) {
+            this.speed = speedCode;
+        }
+    }
+
+    interface In1 {
+        public static void print() {
+            System.err.println("MYTODO: ");
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         //sortedMap();
         //sortedSet();
@@ -97,7 +127,6 @@ public class Main {
         //datetime();
         //enumMap();
         //stringUtils();
-        //ocpjp8();
 
         // tests
         //t1(args);
@@ -112,11 +141,29 @@ public class Main {
         //files();
         //enums();
         //predicates();
-        operators();
+        //operators();
         //jdbc();
         //ocpjp8();
         //arrays();
         //optional();
+        //new Main().methodX();
+        //functions();
+    }
+
+    private static void functions() {
+        final Function<Double, Double> f1 = d -> d * 2;
+        final Function<Double, Integer> f2 = d -> d.intValue();
+        final Function<Double, Integer> f3 = f2.compose(f1);
+        System.err.println("MYTODO: " + new Double(12.6).intValue());
+        System.err.println("MYTODO: " + f3.apply(12.6));
+        final UnaryOperator operator = o -> null;
+    }
+
+    void methodX() throws Exception {
+        for (int x = 0; x > 5; x++) {
+            System.err.println("MYTODO: " + x);
+        }
+        OptionalInt opInt = OptionalInt.of(10);
     }
 
     private static void optional() {
@@ -144,18 +191,36 @@ public class Main {
         final Connection connection2 = ds.getConnection();
         System.err.println("MYTODO: " + connection2.getCatalog().isEmpty());
 
-        final Statement statement = connection1.createStatement();
+        //final Statement statement = connection1.createStatement();
+        //final Statement statement = connection1.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY); // absolute() is not allowed
+        final Statement statement = connection1.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        //final Statement statement = connection1.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         final ResultSet resultSet = statement.executeQuery("select * from employees");
         final JdbcRowSet rowSet = RowSetProvider.newFactory().createJdbcRowSet();
         final JdbcRowSet rowSet2 = new JdbcRowSetImpl(resultSet);
-        resultSet.absolute(2);
-        while (rowSet.next()) {
-            System.err.println("MYTODO: " + rowSet.getString("firstname"));
+        resultSet.absolute(1);
+        while (resultSet.next()) {
+            System.err.println("MYTODO: " + resultSet.getString("firstname"));
+        }
+
+        final ResultSet resultSet1 = connection1.createStatement().executeQuery("select employeenumber from employees");
+        final CachedRowSet cachedRowSet = new CachedRowSetImpl();
+        cachedRowSet.populate(resultSet1);
+        cachedRowSet.absolute(3);
+        cachedRowSet.updateInt(1, 42);
+        cachedRowSet.updateRow();
+        connection1.setAutoCommit(false);
+        connection1.commit();
+        //cachedRowSet.acceptChanges(); // unable to get connection
+        cachedRowSet.absolute(1);
+        final ResultSet resultSet2 = connection1.createStatement().executeQuery("select employeenumber from employees");
+
+        while (resultSet2.next()) {
+            System.err.println("MYTODO: " + resultSet2.getInt("employeenumber"));
         }
 
         connection1.close();
         connection2.close();
-
     }
 
     private static void operators() {
@@ -212,11 +277,14 @@ public class Main {
         System.err.println("MYTODO: 3->4=" + path3.relativize(path4));
         System.err.println("MYTODO: 4->3=" + path4.relativize(path3));
 
-        Files.createDirectory(Paths.get("/tmp/one"));
-        Files.createDirectory(Paths.get("/tmp/one/two"));
+        if (Files.notExists(Paths.get("/tmp/one/two"))) {
+            Files.createDirectory(Paths.get("/tmp/one"));
+            Files.createDirectory(Paths.get("/tmp/one/two"));
+        }
         try {
             Files.delete(Paths.get("/tmp/one"));
         } catch (final Exception e) {
+            System.err.println("MYTODO: can't delete the directory. ");
             e.printStackTrace();
         }
         System.err.println("MYTODO: " + " deleted");
@@ -229,14 +297,26 @@ public class Main {
         strings.stream().skip(1).forEach(System.out::println);
 
         Map<String, Object> map = Files.readAttributes(path, "*");
-        System.err.println("MYTODO: " + map);
+        System.err.println("MYTODO: map=" + map);
         final BasicFileAttributes basicFileAttributes = Files.readAttributes(path, BasicFileAttributes.class);
-        System.err.println("MYTODO: " + basicFileAttributes);
+        final PosixFileAttributes posixFileAttributes = Files.readAttributes(path, PosixFileAttributes.class);
+        final DosFileAttributes dosFileAttributes = Files.readAttributes(path, DosFileAttributes.class);
+        System.err.println("MYTODO: " + basicFileAttributes.isDirectory());
+        System.err.println("MYTODO: " + posixFileAttributes.permissions());
+        System.err.println("MYTODO: " + dosFileAttributes.isReadOnly());
+        Files.setAttribute(path, "dos:readonly", true);
+        System.err.println("MYTODO: " + dosFileAttributes.isReadOnly());
 
         final FileVisitor<Path> searcher = new Search();
         Files.walkFileTree(path, searcher);
 
         System.err.println("MYTODO: " + Files.isSameFile(path, path));
+
+        Files.list(Paths.get("/tmp")).forEach(System.out::println);
+
+        Path path5 = Paths.get("");
+        PosixFileAttributes posixFileAttributes1 = Files.readAttributes(path5, PosixFileAttributes.class);
+        posixFileAttributes1.group().getName();
     }
 
     private static void deque() {
@@ -249,6 +329,14 @@ public class Main {
     }
 
     private static void streams() {
+        final Stream flatMapStream = Stream.of(12.1, 12.5, 12.9).flatMap(d -> Stream.of(d.intValue()));
+        flatMapStream.forEach(System.out::println);
+
+
+        System.err.println("MYTODO: " + Stream.of("java", "exam", "oracle").map(s -> Optional.of("A")).collect(Collectors.toList()));
+        System.err.println("MYTODO: " + Stream.of("java", "exam", "oracle").findFirst().map(s -> Optional.of("A")));
+        System.err.println("MYTODO: " + Stream.of("java", "exam", "oracle").findFirst().flatMap(s -> Optional.of("A")));
+
         final Stream<String> stream2 = Stream.of("12", "13", "3", "1");
         final Optional<String> op = stream2.filter(s -> s.length() > 5).findFirst().flatMap(s -> Optional.of("4"));
         System.err.println("MYTODO: " + op);
@@ -261,6 +349,8 @@ public class Main {
 
 
         final IntStream ds = IntStream.of(1, 2, 2, 4);
+        ds.forEach(x -> x +=x);
+        //ds.forEach(x -> x * 2);
         final Stream<Integer> s1 = ds.boxed();
         System.err.println("MYTODO: " + s1.distinct().findFirst());
 
@@ -334,9 +424,58 @@ public class Main {
         LocalDate ld4 = LocalDate.ofYearDay(2013, 365);
         System.err.println("MYTODO: " + ld4);
 
+        final Year y1 = Year.of(2000);
+        final LocalDate localDate3 = y1.atMonthDay(MonthDay.of(11, 22));
+        System.err.println("MYTODO: " + localDate3);
+
+        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("y D");
+        final LocalDate localDate4 = LocalDate.parse("2015 10", formatter);
+        System.err.println("MYTODO: " + localDate4);
+
+        final LocalDateTime localDateTime = LocalDateTime.of(2016, 10, 22, 11, 22);
+        final LocalDate localDate5 = LocalDate
+                .of(localDateTime.getYear(), localDateTime.getHour(), localDateTime.getDayOfWeek().getValue());
+        System.err.println("MYTODO: " + localDate5);
+
+        final String date = "1994-02-28 11:22";
+        final DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-M-dd H:m");
+        final LocalDateTime localDateTime1 = LocalDateTime.parse(date, format);
+        System.err.println("MYTODO: " + localDateTime1);
+
+        final LocalDateTime localDateTime2 = LocalDateTime.of(2016, 12, 1, 12, 10);
+        final String formattted = localDateTime2.format(DateTimeFormatter.BASIC_ISO_DATE);
+        final LocalDateTime localDateTime3 = LocalDate.MAX.atStartOfDay();
+        System.err.println("MYTODO: " + localDateTime3.getHour());
+
+        Period p1 = Period.ofDays(2);
+        System.err.println("MYTODO: " + p1.toString());
+        p1 = p1.multipliedBy(30);
+        System.err.println("MYTODO: " + p1.toString());
+        System.err.println("MYTODO: " + p1.toTotalMonths());
     }
 
+    class SRBundle_hi_IN extends ListResourceBundle {
+        @Override
+        protected Object[][] getContents() {
+            Object[][] resources = new Object[1][2];
+            resources[0][0] = "hello";
+            resources[0][1] = "namaste";
+            return resources;
+        }
+    }
     private static void locales() {
+        final Locale locale = new Locale.Builder().setLanguage("cs").setRegion("CZ").build();
+        System.err.println("MYTODO: " + locale.getDisplayLanguage());
+        System.err.println("MYTODO: " + locale.getDisplayLanguage(new Locale("fr")));
+        System.err.println("MYTODO: " + locale.getDisplayCountry());
+        System.err.println("MYTODO: " + locale.getDisplayCountry(new Locale("FR")));
+
+        Locale.setDefault(Locale.forLanguageTag("hi-IN"));
+        System.err.println("MYTODO: " + Locale.getDefault().getCountry());
+        System.err.println("MYTODO: " + Locale.getDefault().getLanguage());
+        final ResourceBundle bundle = ResourceBundle.getBundle("SRBundle", Locale.getDefault());
+        System.err.println("MYTODO: " + bundle.getString("hello"));
+
         /*
         Locale.FRENCH;
         Locale.FRANCE;
@@ -380,6 +519,19 @@ public class Main {
     }
 
     private static void ocpjp8() {
+        ArrayDeque<Integer> dq = new ArrayDeque<>();
+        dq.add(1);
+        dq.add(2);
+        dq.add(3);
+        System.err.println("MYTODO: " + dq.element());
+        System.err.println("MYTODO: " + dq.poll());
+
+        int z = 1;
+        int x = 10;
+        int y = 0;
+        System.err.println(x++);
+        y++;
+
         //List<? extends Number> list = new ArrayList<>();
         //list.add(new Integer(5)); // can not be assigned any value (Integer, Double, ...)
         //list.add(new Double(3.5));
@@ -387,15 +539,63 @@ public class Main {
         String[] list = { "1", "2", "3" };
         //Arrays.parallelSetAll(list, x -> "x");
         //Arrays.parallelSetAll(list, x -> Integer.toString(x)+list[x]);
-        Arrays.parallelSetAll(list, x -> x);
+        //Arrays.parallelSetAll(list, x -> x);
         System.err.println(list[0]);
         Arrays.stream(list).forEach(System.out::println);
+
+        final Integer i1 = 10;
+        System.err.println("MYTODO: " + i1.toString());
+        System.err.println("MYTODO: " + Integer.toString(10, 2));
+
+        IntSupplier intSupplier = Main::getRand10;
+        System.err.println("MYTODO: " + intSupplier.getAsInt());
+
+        final Map map = new HashMap<>();
+        map.put(1, 1.0);
+        map.put(2, 2.2);
+        map.put(null, null);
+        System.err.println("MYTODO: " + map);
+        map.computeIfPresent(1, (BinaryOperator) (o1, o2) -> (int) o1 + (double) o2);
+        System.err.println("MYTODO: " + map);
+        map.computeIfPresent(2, (o1, o2) -> null);
+        System.err.println("MYTODO: " + map);
+        System.err.println("MYTODO: " + map.values());
+
+        final Instant i2 = Instant.now();
+        System.err.println("MYTODO: " + i2);
+        System.err.println("MYTODO: " + i2.plus(2, ChronoUnit.HOURS));
+        System.err.println("MYTODO: " + i2.getLong(ChronoField.INSTANT_SECONDS));
+
+        final Duration d1 = Duration.ofDays(20);
+        System.err.println("MYTODO: " + d1);
+
+        final Period p1 = Period.ofDays(12).multipliedBy(3);
+        System.err.println("MYTODO: " + p1.negated());
+
+        final LocalTime lt1 = LocalTime.of(12, 59);
+        System.err.println("MYTODO: " + lt1);
+
+        final Map zid = ZoneId.SHORT_IDS;
+        zid.put("Australia/Sydney", "AET");
+        final ZoneId z2 = ZoneId.of("AET", zid);
+        System.err.println("MYTODO: " + z2);
+
+        Map map2 = new ConcurrentHashMap();
+    }
+
+    private static int getRand10() {
+        return (int)(Math.random()*10) + 1;
     }
 
     private static void stringUtils() {
         final String input = "a+b+c+d";
         System.err.println("MYTODO: " + input.replaceAll("\\+", "-"));
         System.err.println("MYTODO: " + input.replace("+", "-"));
+
+        Object o = new Object();
+        o.hashCode();
+        o.toString();
+        o.equals(o);
     }
 
     private enum MyBool {
@@ -418,12 +618,15 @@ public class Main {
     private static void datetime() {
         // Period p = Period.parse("P1Y2M").withMonths(3).withDays(15);
         // Period p = Period.parse("P1Y2M").withMonths(3);
-        Period p = Period.parse("P1Y2M").withDays(15);
+        Period p1 = Period.parse("P1Y2M").withDays(15);
         // Period p = Period.parse("P1Y2M");
-        System.err.println("MYTODO: " + p);
-        LocalDate d = LocalDate.of(2018, 3, 15).minus(p);
+        System.err.println("MYTODO: " + p1);
+        LocalDate d = LocalDate.of(2018, 3, 15).minus(p1);
         System.err.println("MYTODO: " + d);
 
+        final Period p2 = Period.ofDays(2);
+        System.err.println("MYTODO: " + p2);
+        System.err.println("MYTODO: " + p2.withDays(3));
     }
 
     private static void stream() {
