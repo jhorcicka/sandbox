@@ -443,7 +443,7 @@ public class Main {
         System.err.println("MYTODO: " + localDateTime1);
 
         final LocalDateTime localDateTime2 = LocalDateTime.of(2016, 12, 1, 12, 10);
-        final String formattted = localDateTime2.format(DateTimeFormatter.BASIC_ISO_DATE);
+        final String formatted = localDateTime2.format(DateTimeFormatter.BASIC_ISO_DATE);
         final LocalDateTime localDateTime3 = LocalDate.MAX.atStartOfDay();
         System.err.println("MYTODO: " + localDateTime3.getHour());
 
@@ -479,9 +479,7 @@ public class Main {
         /*
         Locale.FRENCH;
         Locale.FRANCE;
-        DateFormat.LONG;
          */
-        //ERROR new DateFormat(DateFormat.LONG, Locale.FRANCE);
     }
 
     private static void attributes() throws IOException {
@@ -489,6 +487,7 @@ public class Main {
         final String pathString = resource.getPath();
         final Path path = Paths.get(pathString);
         final BasicFileAttributes basicFileAttributes = Files.readAttributes(path, BasicFileAttributes.class);
+        basicFileAttributes.isSymbolicLink();
         final UserPrincipal owner = Files.getOwner(path);
         System.err.println("MYTODO: " + owner.getName());
         final Map<String, Object> map = Files.readAttributes(path, "*");
