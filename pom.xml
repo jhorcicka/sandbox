@@ -27,7 +27,6 @@
         <module>presentation</module>
         <module>installer</module>
         <module>java-8-streams</module>
-        <module>jrecord</module>
         <module>reading</module>
         <module>translation</module>
         <module>logging</module>
@@ -37,12 +36,9 @@
         <module>jemmy</module>
         <module>rhino</module>
         <module>docker</module>
-		<module>javafx</module>
-        <module>hbase</module>
 		<module>mongo</module>
 		<module>h2</module>
 		<module>spark</module>
-		<module>datacleaner</module>
 		<module>cxf-ws</module>
         <module>axis2-ws</module>
         <module>jersey</module>
@@ -53,6 +49,7 @@
         <module>lesscss</module>
         <module>csv</module>
         <module>redshift</module>
+        <module>servlet</module>
     </modules>
 
     <properties>
