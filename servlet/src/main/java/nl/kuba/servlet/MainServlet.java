@@ -1,8 +1,6 @@
 package nl.kuba.servlet;
 
 import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +12,7 @@ public class MainServlet extends HttpServlet {
         super();
     }
 
-    protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws IOException {
         response.getOutputStream().print("Hello from MainServlet. ");
     }
 }

@@ -1,18 +1,22 @@
 package nl.hi.kuba.jira;
 
+import java.util.Set;
+
 public class JiraIssue {
     private String id;
     private String subject;
     private String epic;
     private String status;
     private String type;
+    private Set<String> labels;
 
-    JiraIssue(final String id, final String subject, final String epic, final String status, final String type) {
+    JiraIssue(final String id, final String subject, final String epic, final String status, final String type, final Set<String> labels) {
         this.id = id;
         this.subject = subject;
         this.epic = epic;
         this.status = status;
         this.type = type;
+        this.labels = labels;
     }
 
     public String getId() {
@@ -35,7 +39,12 @@ public class JiraIssue {
         return type;
     }
 
+    public Set<String> getLabels() {
+        return labels;
+    }
+
     public String toString() {
-        return getId() + " [" + getType() + "]: " + getSubject();
+        final String labelsPart = labels.isEmpty() ? "" : " {" + this.labels + "}";
+        return getId() + " [" + getType() + "]: " + getSubject() + labelsPart;
     }
 }

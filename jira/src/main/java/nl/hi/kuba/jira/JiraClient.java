@@ -13,8 +13,9 @@ import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientF
 import com.atlassian.util.concurrent.Promise;
 
 class JiraClient {
-    private static final String JQL_CURRENT_SPRINT =
-            "(project = MDM) and sprint in openSprints() and (issuetype = bug or issuetype = story or issuetype = question)";
+    private static final String PROJECT = "MDM";
+    private static final String JQL_SPRINT_ISSUES = "(project = " + PROJECT
+            + ") and %s and (issuetype = bug or issuetype = story or issuetype = question)";
     private String username;
     private String password;
     private String jiraUrl;
@@ -43,7 +44,13 @@ class JiraClient {
     }
 
     List<JiraIssue> getCurrentSprint() throws ExecutionException, InterruptedException {
-        final SearchResult searchResult = restClient.getSearchClient().searchJql(JQL_CURRENT_SPRINT).get();
+        return getSprintIssues(null);
+    }
+
+    List<JiraIssue> getSprintIssues(final Integer sprintId) throws ExecutionException, InterruptedException {
+        final String searchJql = sprintId == null ? String.format(JQL_SPRINT_ISSUES, "sprint in openSprints()") : String.format(
+                JQL_SPRINT_ISSUES, "sprint = " + sprintId);
+        final SearchResult searchResult = restClient.getSearchClient().searchJql(searchJql).get();
         final List<JiraIssue> jiraIssues = new ArrayList<>();
 
         for (final Issue issue : searchResult.getIssues()) {
@@ -51,7 +58,7 @@ class JiraClient {
             final String epicId = epicObject == null ? null : epicObject.toString();
             final String epicName = epicId == null ? "Others" : getIssue(epicId).getSummary();
             jiraIssues.add(new JiraIssue(issue.getKey(), issue.getSummary(), epicName, issue.getStatus().getName(),
-                    issue.getIssueType().getName()));
+                    issue.getIssueType().getName(), issue.getLabels()));
         }
 
         return jiraIssues;
