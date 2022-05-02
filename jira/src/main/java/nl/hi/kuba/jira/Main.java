@@ -7,13 +7,13 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 public class Main {
-    private static String URL = "";
-    private static String USERNAME = "";
-    private static String PASSWORD = "";
+    private static final String URL = "";
+    private static final String USERNAME = "";
+    private static final String TOKEN = "";
 
     public static void main(String[] args) {
         try {
-            final JiraClient client = new JiraClient(USERNAME, PASSWORD, URL);
+            final JiraClient client = new JiraClient(USERNAME, TOKEN, URL);
             //printTeamPerformance(client);
             printSprintReport(new Sprint(client.getCurrentSprint()));
         } catch (final Exception e) {
