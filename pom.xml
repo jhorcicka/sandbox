@@ -50,7 +50,8 @@
         <module>csv</module>
         <module>redshift</module>
         <module>servlet</module>
-    </modules>
+		<module>azure-insights</module>
+	</modules>
 
     <properties>
         <!--<mainClass>nl.hi.kuba.sandbox.Main</mainClass>-->
