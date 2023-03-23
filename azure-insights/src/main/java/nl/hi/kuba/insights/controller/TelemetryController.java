@@ -1,5 +1,7 @@
 package nl.hi.kuba.insights.controller;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microsoft.applicationinsights.TelemetryClient;
-import com.microsoft.localforwarder.library.inputs.contracts.Telemetry;
+import com.microsoft.applicationinsights.telemetry.Duration;
+import com.microsoft.applicationinsights.telemetry.RequestTelemetry;
 
 @RestController
 public class TelemetryController {
@@ -17,9 +20,15 @@ public class TelemetryController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TelemetryController.class);
     @GetMapping("/telemetry")
     public String telemetry(@RequestParam(name = "id", defaultValue = "42") String id) {
-        LOGGER.info("Endpoint /telemetry?id=" +  id + " has been called. ");
+        LOGGER.info("Endpoint /telemetry?id={} has been called. ", id);
         telemetryClient.trackEvent("URI /telemetry?id=" + id + " has been triggered. ");
         telemetryClient.trackException(new RuntimeException("Test KUBA exception. "));
+        telemetryClient.trackMetric("KUBA-metric", 42);
+        telemetryClient.trackPageView("KUBA: telemetry page");
+        telemetryClient.trackDependency("KUBA dependency", "KUBA command", new Duration(42L), true);
+        telemetryClient.trackRequest(new RequestTelemetry("KUBA request", new Date(), 1L, "200", true));
+        telemetryClient.trackHttpRequest("KUBA request", new Date(), 1L, "200", true);
+        telemetryClient.trackTrace("KUBA trace");
         telemetryClient.flush();
         return "Test{id=" + id + "}";
     }
