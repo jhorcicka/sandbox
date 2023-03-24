@@ -20,7 +20,9 @@ public class TelemetryController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TelemetryController.class);
     @GetMapping("/telemetry")
     public String telemetry(@RequestParam(name = "id", defaultValue = "42") String id) {
-        LOGGER.info("Endpoint /telemetry?id={} has been called. ", id);
+        LOGGER.info("INFO: Endpoint /telemetry?id={} has been called. ", id);
+        LOGGER.warn("WARN: Endpoint /telemetry?id={} has been called. ", id);
+        LOGGER.error("ERROR: Endpoint /telemetry?id={} has been called. ", id);
         telemetryClient.trackEvent("URI /telemetry?id=" + id + " has been triggered. ");
         telemetryClient.trackException(new RuntimeException("Test KUBA exception. "));
         telemetryClient.trackMetric("KUBA-metric", 42);
