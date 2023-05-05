@@ -169,7 +169,7 @@ public class StreamsDemo {
 
         final IntSummaryStatistics statistics =
                 consumers.stream().collect(Collectors.summarizingInt(Consumer::getCount));
-        System.err.println("statistics=" + statistics.toString());
+        System.err.println("statistics=" + statistics);
 
         final Map<Integer, List<Consumer>> collectorMapOfLists =
                 consumers.stream().collect(Collectors.groupingBy(Consumer::getCount));
@@ -177,7 +177,7 @@ public class StreamsDemo {
 
         final Map<Boolean, List<Consumer>> mapPartioned =
                 consumers.stream().collect(Collectors.partitioningBy(element -> element.getCount() > 3));
-        System.err.println("mapPartioned=" + mapPartioned.toString());
+        System.err.println("mapPartitioned=" + mapPartioned.toString());
 
         final Collector<Consumer, ?, LinkedList<Consumer>> toLinkedList =
                 Collector.of(LinkedList::new, LinkedList::add, (first, second) -> {
