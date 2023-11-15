@@ -52,6 +52,7 @@
         <module>servlet</module>
 		<module>azure-insights</module>
 		<module>dependency-injection</module>
+		<module>openrewrite</module>
 	</modules>
 
     <properties>
