@@ -1,7 +1,7 @@
 package nl.hi.kuba;
 
 public class Demo {
-    private static String suffix = "abc";
+    private static String SUFFIX = "abc";
 
     public static void main(String[] args) {
         System.out.println("test");
@@ -9,6 +9,6 @@ public class Demo {
 
     private static String addPrefixAndSuffix(String input) {
         String prefix = "xyz";
-        return prefix + input + suffix;
+        return prefix + input + SUFFIX;
     }
 }

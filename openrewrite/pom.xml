@@ -27,6 +27,7 @@
 						<recipe>org.openrewrite.staticanalysis.FinalizeLocalVariables</recipe>
 						<recipe>org.openrewrite.staticanalysis.FinalizeMethodArguments</recipe>
 						<recipe>org.openrewrite.staticanalysis.FinalizePrivateFields</recipe>
+<!--						<recipe>org.openrewrite.java.migrate.UpgradeToJava17</recipe>-->
 					</activeRecipes>
 				</configuration>
 				<dependencies>
