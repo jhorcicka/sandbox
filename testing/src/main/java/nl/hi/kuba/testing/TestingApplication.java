@@ -10,4 +10,13 @@ public class TestingApplication {
 		SpringApplication.run(TestingApplication.class, args);
 	}
 
+	public static int mutationTestMethod(final int input) {
+		if (input >= 0) {
+			return input;
+		} else {
+			return 0;
+		}
+
+	}
+
 }

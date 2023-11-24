@@ -53,6 +53,8 @@
 		<module>azure-insights</module>
 		<module>dependency-injection</module>
 		<module>openrewrite</module>
+		<module>netty</module>
+		<module>liquibase</module>
 	</modules>
 
     <properties>
