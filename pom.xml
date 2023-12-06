@@ -43,6 +43,7 @@
         <module>axis2-ws</module>
         <module>jersey</module>
         <module>jruby</module>
+        <module>kafka</module>
         <module>ocajp8</module>
         <module>jira</module>
         <module>sass</module>
