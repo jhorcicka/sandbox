@@ -55,7 +55,8 @@
 		<module>openrewrite</module>
 		<module>netty</module>
 		<module>liquibase</module>
-	</modules>
+        <module>kafka</module>
+    </modules>
 
     <properties>
         <!--<mainClass>nl.hi.kuba.sandbox.Main</mainClass>-->

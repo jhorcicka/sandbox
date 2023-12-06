@@ -27,6 +27,7 @@ public class Container {
           try {
             field.setAccessible(true);
             field.set(controller, service);
+            field.setAccessible(false);
           } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
           }
