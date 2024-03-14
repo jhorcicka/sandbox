@@ -57,6 +57,7 @@
 		<module>netty</module>
 		<module>liquibase</module>
         <module>kafka</module>
+        <module>cucumber</module>
     </modules>
 
     <properties>
