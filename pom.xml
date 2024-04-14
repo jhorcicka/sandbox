@@ -55,14 +55,14 @@
 		<module>dependency-injection</module>
 		<module>openrewrite</module>
 		<module>netty</module>
-		<module>liquibase</module>
-        <module>kafka</module>
         <module>cucumber</module>
     </modules>
 
     <properties>
         <!--<mainClass>nl.hi.kuba.sandbox.Main</mainClass>-->
         <mainClass>nl.hi.kuba.sandbox.ArgumentsHandler</mainClass>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
     </properties>
 
     <dependencies>
@@ -109,11 +109,16 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
 
@@ -140,7 +145,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.5.3</version>
+                <version>3.7.1</version>
                 <configuration>
                     <archive>
                         <manifest>
