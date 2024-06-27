@@ -55,7 +55,10 @@
 		<module>dependency-injection</module>
 		<module>openrewrite</module>
 		<module>netty</module>
+        <module>kafka</module>
         <module>cucumber</module>
+        <module>design-patterns</module>
+        <module>wiremock</module>
     </modules>
 
     <properties>
