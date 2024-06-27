@@ -49,7 +49,7 @@ public class FileAlterationDemo {
         observer.addListener(listener);
 
         final int seconds = 2;
-        final FileAlterationMonitor monitor = new FileAlterationMonitor(seconds + 1000);
+        final FileAlterationMonitor monitor = new FileAlterationMonitor(seconds * 1000);
         monitor.addObserver(observer);
         monitor.start();
     }
